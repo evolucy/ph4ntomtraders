@@ -1,24 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Auto Trading Quotes System
-    const quotes = [
-        "Risk comes from not knowing what you're doing!",
-        "The market is a device for transferring money from the impatient to the patient!",
-        "Opportunities come infrequently. When it rains gold, put out the bucket!",
-        "The goal of a successful trader is to make the best trades. Money is secondary!",
-        "An investment in knowledge pays the best interest!"
-    ];
-    
-    function updateQuote() {
-        const quoteElement = document.getElementById("trading-quote");
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        quoteElement.textContent = quotes[randomIndex];
-    }
-
-    setInterval(updateQuote, 5000); // Change quote every 5 seconds
-
-});
-
-// Open Telegram Channel
+// Function to Join Telegram Channel
 function joinTelegram() {
     window.open("https://t.me/ph4ntomtraders", "_blank");
 }
@@ -54,3 +34,22 @@ function redirectToPayment(plan) {
     
     window.open(paymentLink, "_blank");
 }
+
+// Auto Trading Quotes System
+document.addEventListener("DOMContentLoaded", () => {
+    const quotes = [
+        "Risk comes from not knowing what you're doing!",
+        "The market is a device for transferring money from the impatient to the patient!",
+        "Opportunities come infrequently. When it rains gold, put out the bucket!",
+        "The goal of a successful trader is to make the best trades. Money is secondary!",
+        "An investment in knowledge pays the best interest!"
+    ];
+    
+    function updateQuote() {
+        const quoteElement = document.getElementById("trading-quote");
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        quoteElement.textContent = quotes[randomIndex];
+    }
+
+    setInterval(updateQuote, 5000); // Change quote every 5 seconds
+});
