@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Landing Page</title>
+    <title>Futuristic Landing Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="particles-js"></div>  <!-- Background Animation -->
+    
+    <!-- Background Animation -->
+    <div id="particles-js"></div>
 
-    <nav class="navbar">
-        <div class="logo">Ph4ntom Traders</div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">PH4NTOM TRADERS</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 
-    <section class="hero">
-        <h1 class="headline">Welcome to the Future</h1>
-        <p class="subtext">The most advanced trading AI is here.</p>
-        <p class="quote" id="quote"></p>
-        <button class="join-btn" onclick="displayRandomQuote()">Get Inspired</button>
-    </section>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 class="headline">Next-Gen Trading</h1>
+        <p class="subtext">Master the markets with AI & Automation.</p>
+        <button class="join-btn">Get Started</button>
+        <p id="quote" class="quote"></p>
+    </div>
 
-    <script src="particles.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js" defer></script>
+
 </body>
 </html>
