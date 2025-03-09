@@ -26,11 +26,14 @@ class Candle {
     }
 
     update() {
-        this.y -= 1; 
+        this.y -= 2; // 🆕 Candles continuously upar jayenge
+
+        // 🆕 Agar candle screen ke upar chali jaye, toh neeche se ek naya candle aaye
         if (this.y + this.height < 0) {
             this.y = canvas.height;
             this.height = Math.random() * 40 + 20;
         }
+
         this.draw();
     }
 }
@@ -39,7 +42,7 @@ function initCandles() {
     candles = [];
     for (let i = 0; i < canvas.width / 15; i++) {
         let height = Math.random() * 40 + 20;
-        let y = Math.random() * canvas.height;
+        let y = canvas.height - i * 50; // 🆕 Candles ek line me neeche se upar aayenge
         candles.push(new Candle(i * 15, y, height, true));
     }
 }
