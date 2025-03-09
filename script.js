@@ -1,3 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("PH4NTOM TRADERS Animation Loaded!");
-});
+// Glitch Effect Loop
+setInterval(() => {
+    document.querySelector('.animated-text').classList.toggle('glitch');
+}, 2000);
