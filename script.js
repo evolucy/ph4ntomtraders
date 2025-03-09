@@ -1,15 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Toggle Pricing Section
-    function togglePricing() {
-        const pricingSection = document.getElementById("pricing");
-        if (pricingSection) {
-            pricingSection.classList.toggle("hidden");
-            if (!pricingSection.classList.contains("hidden")) {
-                pricingSection.scrollIntoView({ behavior: "smooth" });
-            }
-        }
+function togglePricing() {
+    var pricingSection = document.getElementById("pricing");
+    if (pricingSection.classList.contains("hidden")) {
+        pricingSection.classList.remove("hidden");
+    } else {
+        pricingSection.classList.add("hidden");
     }
+}
 
-    // Ensure Function Works Globally
-    window.togglePricing = togglePricing;
-});
+function redirectToPayment(plan) {
+    let url = "";
+    switch(plan) {
+        case "1month":
+            url = "https://yourpaymentgateway.com/pay?amount=3999";
+            break;
+        case "3month":
+            url = "https://yourpaymentgateway.com/pay?amount=5999";
+            break;
+        case "6month":
+            url = "https://yourpaymentgateway.com/pay?amount=9999";
+            break;
+        case "lifetime":
+            url = "https://yourpaymentgateway.com/pay?amount=14999";
+            break;
+        default:
+            url = "https://yourpaymentgateway.com/trial";
+    }
+    window.location.href = url;
+}
