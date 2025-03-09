@@ -1,17 +1,22 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #0a0a0a;
+    background: #121212;
     color: white;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #111;
+    background: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 nav a {
@@ -20,43 +25,61 @@ nav a {
     text-decoration: none;
 }
 
+/* Hero Section */
 .hero {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
-.buttons button {
+.buttons {
+    margin-top: 20px;
+}
+
+button {
     padding: 10px 20px;
-    margin: 10px;
-    font-size: 18px;
     border: none;
+    margin: 5px;
     cursor: pointer;
+    font-size: 16px;
+}
+
+.join-btn {
+    background: #28a745;
+    color: white;
 }
 
 .get-started {
-    background-color: #ff9800;
-    color: black;
+    background: #007bff;
+    color: white;
+}
+
+/* Pricing Section */
+#pricing {
+    margin-top: 50px;
 }
 
 .pricing-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+    gap: 20px;
 }
 
 .pricing-card {
     background: #222;
-    padding: 15px;
-    border-radius: 8px;
-    min-width: 180px;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 150px;
 }
 
 .hidden {
     display: none;
 }
 
+/* Features & Contact */
+#features, #contact {
+    margin-top: 50px;
+}
+
 #contact a {
-    color: #ff9800;
-    text-decoration: none;
+    color: #00ffcc;
 }
