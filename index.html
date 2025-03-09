@@ -8,47 +8,40 @@
 </head>
 <body>
     <header>
-        <h1>PH4NTOM TRADERS</h1>
+        <div class="logo">PH4NTOM <span class="highlight">TRADERS</span></div>
         <nav>
-            <a href="#features">Features</a>
-            <a href="#contact">Contact</a>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h2>PH4NTOM TRADERS</h2>
-        <p id="quote">"Risk comes from not knowing what you're doing!"</p>
+        <h1>PH4NTOM <span class="highlight">TRADERS</span></h1>
+        <p>"Risk comes from not knowing what you're doing!"</p>
         <div class="buttons">
-            <button class="join-btn">JOIN NOW</button>
-            <button class="get-started" onclick="togglePricing()">GET STARTED</button>
+            <button class="btn join-now">JOIN NOW</button>
+            <button class="btn get-started">GET STARTED</button>
         </div>
     </section>
 
-    <section id="pricing" class="hidden">
+    <section class="pricing">
         <h2>Pricing Plans</h2>
-        <div class="pricing-container">
-            <div class="pricing-card" onclick="redirectToPayment('free')">2 Days <span>Free Trial</span></div>
-            <div class="pricing-card" onclick="redirectToPayment('1month')">1 Month <span>₹3,999</span></div>
-            <div class="pricing-card" onclick="redirectToPayment('3month')">3 Months <span>₹5,999</span></div>
-            <div class="pricing-card" onclick="redirectToPayment('6month')">6 Months <span>₹9,999</span></div>
-            <div class="pricing-card" onclick="redirectToPayment('lifetime')">Lifetime Access <span>₹14,999</span></div>
+        <div class="price-container">
+            <div class="price-card">2 Days Free Trial</div>
+            <div class="price-card">1 Month ₹3,999</div>
+            <div class="price-card">3 Months ₹5,999</div>
+            <div class="price-card">6 Months ₹9,999</div>
+            <div class="price-card">Lifetime Access ₹14,999</div>
         </div>
     </section>
 
-    <section id="features">
-        <h2>Features</h2>
-        <ul>
-            <li>✔ Advanced Trading Strategies</li>
-            <li>✔ Real-time Market Analysis</li>
-            <li>✔ AI-powered Trading Insights</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/7566617481">7566617481</a></p>
-    </section>
+    <footer id="contact">
+        <p>Contact Us</p>
+        <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
+        <a href="tel:7566617481">WhatsApp: 7566617481</a>
+    </footer>
 
     <script src="script.js"></script>
 </body>
