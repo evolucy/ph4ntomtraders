@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const pricingSection = document.getElementById("pricing-section");
     const pricingButtons = document.querySelectorAll(".pricing-btn");
 
+    if (!getStartedBtn || !pricingSection) {
+        console.error("Error: Required elements not found!");
+        return;
+    }
+
     // Hide pricing section initially
     pricingSection.style.display = "none";
 
