@@ -1,83 +1,62 @@
-/* General Styles */
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
     text-align: center;
-}
-
-body {
-    background-color: #0f1624;
+    background-color: #0a0a0a;
     color: white;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background: #1a1a2e;
+    background-color: #111;
 }
 
 nav a {
-    color: #00ff99;
-    text-decoration: none;
+    color: white;
     margin: 0 15px;
+    text-decoration: none;
 }
 
-/* Hero Section */
 .hero {
-    margin: 100px 0;
+    margin-top: 50px;
 }
 
-.hero h2 {
-    font-size: 48px;
-    color: #00ff99;
-}
-
-.buttons {
-    margin-top: 20px;
-}
-
-.join-btn, .get-started {
-    background: linear-gradient(90deg, #00ff99, #00cc77);
-    color: black;
-    padding: 15px 30px;
+.buttons button {
+    padding: 10px 20px;
+    margin: 10px;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.get-started:hover {
-    transform: scale(1.1);
-}
-
-/* Pricing Section */
-#pricing {
-    padding: 50px 20px;
-    background: #1a1a2e;
+.get-started {
+    background-color: #ff9800;
+    color: black;
 }
 
 .pricing-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
 }
 
-.price-card {
-    background: #00ff99;
-    color: black;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
+.pricing-card {
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 180px;
 }
 
-/* Features & Contact */
-#features, #contact {
-    padding: 50px 20px;
+.hidden {
+    display: none;
+}
+
+#contact a {
+    color: #ff9800;
+    text-decoration: none;
 }
