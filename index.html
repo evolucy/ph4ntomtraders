@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ph4ntom Traders</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Animated Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="particles-js"></div>  <!-- Background Animation -->
 
-    <canvas id="backgroundCanvas"></canvas> <!-- Background Canvas -->
+    <nav class="navbar">
+        <div class="logo">Ph4ntom Traders</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <!-- Content -->
-    <div class="content">
-        <h1>Ph4ntom Traders</h1>
-        <p>AI-powered trading revolution starts here.</p>
-        <button class="join-btn">Join Now</button>
-    </div>
+    <section class="hero">
+        <h1 class="headline">Welcome to the Future</h1>
+        <p class="subtext">The most advanced trading AI is here.</p>
+        <p class="quote" id="quote"></p>
+        <button class="join-btn" onclick="displayRandomQuote()">Get Inspired</button>
+    </section>
 
+    <script src="particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
