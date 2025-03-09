@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Toggle Pricing Section
     function togglePricing() {
         const pricingSection = document.getElementById("pricing");
-        pricingSection.classList.toggle("hidden");
-        if (!pricingSection.classList.contains("hidden")) {
-            pricingSection.scrollIntoView({ behavior: "smooth" });
+        if (pricingSection) {
+            pricingSection.classList.toggle("hidden");
+            if (!pricingSection.classList.contains("hidden")) {
+                pricingSection.scrollIntoView({ behavior: "smooth" });
+            }
         }
     }
 
-    // Ensure the function is available globally
+    // Ensure Function Works Globally
     window.togglePricing = togglePricing;
 });
