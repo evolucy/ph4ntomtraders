@@ -1,15 +1,20 @@
+// Array of trading motivational quotes
 const quotes = [
-    '"The market rewards patience, not impulse."',
-    '"Trade with a plan, not with emotions."',
-    '"Risk management is the key to longevity."',
-    '"Success in trading is a marathon, not a sprint."',
-    '"Focus on the process, profits will follow."'
+    "Trade what you see, not what you think.",
+    "The market is a device for transferring money from the impatient to the patient.",
+    "Risk comes from not knowing what you're doing.",
+    "The goal of a successful trader is to make the best trades. Money is secondary.",
+    "Amateurs think about how much money they can make. Professionals think about how much they could lose.",
+    "Trade with a plan, or plan to fail.",
+    "Be fearful when others are greedy and greedy when others are fearful.",
 ];
 
-function changeQuote() {
-    const quoteElement = document.getElementById('quote');
+// Function to display a random quote
+function displayRandomQuote() {
+    const quoteElement = document.getElementById("quote");
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteElement.innerText = quotes[randomIndex];
+    quoteElement.textContent = quotes[randomIndex];
 }
 
-setInterval(changeQuote, 5000);
+// Display a random quote on page load
+window.onload = displayRandomQuote;
