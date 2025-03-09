@@ -1,0 +1,66 @@
+/* Global Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #000;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('https://source.unsplash.com/1600x900/?trading,stocks') no-repeat center center/cover;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    background: #ff7300;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff5400;
+}
