@@ -11,6 +11,18 @@ body {
     color: white;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+}
+
+/* Centering Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Animated Headline */
@@ -30,7 +42,7 @@ body {
 
 .subtext {
     font-size: 24px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     opacity: 0.8;
     animation: fadeIn 2s ease-in-out;
     transition: opacity 0.5s ease-in-out;
@@ -38,7 +50,8 @@ body {
 
 /* Buttons */
 .buttons {
-    margin-top: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .join-btn, .get-started {
