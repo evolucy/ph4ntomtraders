@@ -1,55 +1,27 @@
-import { Button } from "@/components/ui/button";
-
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* Hero Section */}
-      <header className="flex flex-col items-center justify-center h-screen text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold">Master the Markets with <span className="text-blue-500">Ph4ntom Traders</span></h1>
-        <p className="mt-4 text-lg text-gray-300">Next-level SMC/ICT Trading Indicators for Professional Traders</p>
-        <Button className="mt-6 px-6 py-3 text-lg bg-blue-500 hover:bg-blue-600">Get Started</Button>
-      </header>
-
-      {/* Features Section */}
-      <section className="py-20 px-6 text-center">
-        <h2 className="text-3xl font-semibold">Why Choose Our Indicator?</h2>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-gray-800 rounded-xl">
-            <h3 className="text-xl font-bold text-blue-400">Smart Market Structure</h3>
-            <p className="text-gray-300 mt-2">Auto-detect BOS, CHoCH & IDM with precision.</p>
-          </div>
-          <div className="p-6 bg-gray-800 rounded-xl">
-            <h3 className="text-xl font-bold text-blue-400">AI-Powered Alerts</h3>
-            <p className="text-gray-300 mt-2">Get real-time alerts for critical market movements.</p>
-          </div>
-          <div className="p-6 bg-gray-800 rounded-xl">
-            <h3 className="text-xl font-bold text-blue-400">Seamless TradingView Integration</h3>
-            <p className="text-gray-300 mt-2">Works flawlessly with TradingView for smooth execution.</p>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ph4ntomtraders - Premium Indicators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body { background: #0d0d0d; color: white; font-family: Arial, sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; }
+    </style>
+</head>
+<body>
+    <header class="p-5 text-center text-2xl font-bold neon-text">ph4ntomtraders</header>
+    <section class="flex flex-col items-center justify-center min-h-screen">
+        <div class="glass text-center max-w-2xl">
+            <h1 class="text-4xl font-bold">Premium Trading Indicators</h1>
+            <p class="mt-4 text-lg">Unlock high-accuracy SMC & ICT-based indicators with cutting-edge algorithms.</p>
+            <button class="mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-lg transition">Get Started</button>
         </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-20 px-6 text-center bg-gray-800">
-        <h2 className="text-3xl font-semibold">Choose Your Plan</h2>
-        <div className="mt-8 flex flex-col md:flex-row justify-center gap-6">
-          <div className="p-6 bg-gray-900 rounded-xl text-center">
-            <h3 className="text-2xl font-bold text-blue-400">1-Month Access</h3>
-            <p className="text-gray-300 mt-2">₹1999/month</p>
-            <Button className="mt-4 bg-blue-500 hover:bg-blue-600">Buy Now</Button>
-          </div>
-          <div className="p-6 bg-gray-900 rounded-xl text-center border border-blue-500">
-            <h3 className="text-2xl font-bold text-blue-400">Lifetime Access</h3>
-            <p className="text-gray-300 mt-2">₹9999 (One-time)</p>
-            <Button className="mt-4 bg-blue-500 hover:bg-blue-600">Buy Now</Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-6 text-center bg-gray-900 text-gray-400">
-        <p>&copy; 2025 Ph4ntom Traders | All Rights Reserved</p>
-      </footer>
-    </div>
-  );
-}
+    </section>
+    <script>
+        gsap.from(".glass", { opacity: 0, y: 50, duration: 1, ease: "power3.out" });
+    </script>
+</body>
+</html>
