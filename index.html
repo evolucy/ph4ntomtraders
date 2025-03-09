@@ -4,48 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ph4ntomtraders - Premium Indicators</title>
+
+    <!-- ✅ Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
         body { background: #0d0d0d; color: white; font-family: Arial, sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px); 
+            border-radius: 10px; 
+            padding: 20px; 
+        }
     </style>
 </head>
 <body>
-    <header class="p-5 text-center text-2xl font-bold neon-text">ph4ntomtraders</header>
+    <!-- ✅ Header -->
+    <header class="p-5 text-center text-2xl font-bold neon-text">
+        ph4ntomtraders
+    </header>
+
+    <!-- ✅ Main Content -->
     <section class="flex flex-col items-center justify-center min-h-screen">
         <div class="glass text-center max-w-2xl">
             <h1 class="text-4xl font-bold">Premium Trading Indicators</h1>
-            <p class="mt-4 text-lg">Unlock high-accuracy SMC & ICT-based indicators with cutting-edge algorithms.</p>
-            <button class="mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-lg transition">Get Started</button>
+            <p class="mt-4 text-lg">
+                Unlock high-accuracy SMC & ICT-based indicators with cutting-edge algorithms.
+            </p>
+            <button class="mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white text-lg transition">
+                Get Started
+            </button>
         </div>
     </section>
 
+    <!-- ✅ GSAP Animation -->
     <script>
         gsap.from(".glass", { opacity: 0, y: 50, duration: 1, ease: "power3.out" });
     </script>
 
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js"></script>
+    <!-- ✅ Firebase (Fixed Import Issue) -->
+    <script type="module">
+        // Import Firebase modules correctly
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
 
-    <script>
-      // Firebase Configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyArL69yXgStfa5nYVUHp7op2CX-m7eviw",
-        authDomain: "ph4ntomtraders.firebaseapp.com",
-        projectId: "ph4ntomtraders",
-        storageBucket: "ph4ntomtraders.appspot.com",
-        messagingSenderId: "1032102942239",
-        appId: "1:1032102942239:web:7ee5612c9038830b82e72a",
-        measurementId: "G-N0H79WRQJ"
-      };
+        // ✅ Firebase Configuration (Replace with your own if needed)
+        const firebaseConfig = {
+            apiKey: "AIzaSyArL69yXgStfa5nYVUHp7op2CX-m7eviw",
+            authDomain: "ph4ntomtraders.firebaseapp.com",
+            projectId: "ph4ntomtraders",
+            storageBucket: "ph4ntomtraders.appspot.com",
+            messagingSenderId: "1032102942239",
+            appId: "1:1032102942239:web:7ee5612c9038830b82e72a",
+            measurementId: "G-N0H79WRQJ"
+        };
 
-      // Initialize Firebase
-      const app = firebase.initializeApp(firebaseConfig);
-      const analytics = firebase.analytics();
+        // ✅ Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
     </script>
-
 </body>
 </html>
-
