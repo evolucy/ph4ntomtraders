@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
             quoteIndex = (quoteIndex + 1) % quotes.length;
         }
     }
-    setInterval(changeQuote, 3000);
+    setInterval(changeQuote, 3000); // Change every 3 sec
 
-    // Particles Animation
+    // Particles Background Animation
     const canvas = document.getElementById('background');
     if (canvas) {
         const ctx = canvas.getContext('2d');
