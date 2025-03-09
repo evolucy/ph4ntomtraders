@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Changing Quotes
     const quotes = [
+        '"Risk comes from not knowing what you\'re doing!"',
         '"Trade smart, trade fearless!"',
         '"Patience + Discipline = Profits!"',
-        '"Risk comes from not knowing what you\'re doing!"',
         '"A trader who controls emotions, controls the market!"'
     ];
 
