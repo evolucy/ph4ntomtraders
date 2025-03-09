@@ -11,6 +11,10 @@ body {
     color: white;
     text-align: center;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 /* Navigation */
@@ -23,6 +27,7 @@ nav {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 100;
 }
 
@@ -52,15 +57,15 @@ nav {
     color: #00ff99;
 }
 
-/* Hero Section */
+/* Hero Section (Center) */
 .hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 50px;
+    flex: 1;
     text-align: center;
+    padding-top: 100px;
 }
 
 /* Headline */
@@ -101,7 +106,7 @@ nav {
     box-shadow: 0 0 20px #00ff99;
 }
 
-/* Sections */
+/* Bottom Sections */
 #features, #contact {
     padding: 50px 10%;
     text-align: center;
