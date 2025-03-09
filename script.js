@@ -2,7 +2,7 @@
 const quotes = [
     '"Trade smart, trade fearless!"',
     '"Patience + Discipline = Profits!"',
-    '"Risk comes from not knowing what you\'re doing!"',
+    '"Risk comes from not knowing what you're doing!"',
     '"A trader who controls emotions, controls the market!"'
 ];
 
@@ -13,59 +13,74 @@ function changeQuote() {
 }
 setInterval(changeQuote, 3000); // Change every 3 sec
 
-// Candlestick Animation
-const canvas = document.getElementById('candlestickCanvas');
-const ctx = canvas.getContext('2d');
+// 3D Candlestick Background Animation
+const canvas = document.getElementById("candlestickCanvas");
+const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let candles = [];
+
 class Candle {
-    constructor(x, open, close, high, low, color) {
+    constructor(x, open, close, high, low, width) {
         this.x = x;
         this.open = open;
         this.close = close;
         this.high = high;
         this.low = low;
-        this.color = color;
+        this.width = width;
+        this.color = close > open ? "#00ff99" : "#ff4444";
     }
 
     draw() {
         // Wick
         ctx.beginPath();
-        ctx.moveTo(this.x + 5, this.high);
-        ctx.lineTo(this.x + 5, this.low);
-        ctx.strokeStyle = "white";
+        ctx.moveTo(this.x + this.width / 2, this.high);
+        ctx.lineTo(this.x + this.width / 2, this.low);
+        ctx.strokeStyle = this.color;
         ctx.lineWidth = 2;
         ctx.stroke();
 
         // Body
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, Math.min(this.open, this.close), 10, Math.abs(this.open - this.close));
+        ctx.fillRect(this.x, Math.min(this.open, this.close), this.width, Math.abs(this.close - this.open));
+    }
+
+    update() {
+        this.x -= 2;
     }
 }
 
-let candles = [];
-
-function generateCandles() {
+function createCandles() {
     candles = [];
-    let x = 50;
-    for (let i = 0; i < 50; i++) {
-        let open = Math.random() * canvas.height * 0.5 + canvas.height * 0.3;
-        let close = Math.random() * canvas.height * 0.5 + canvas.height * 0.3;
-        let high = Math.max(open, close) + Math.random() * 40;
-        let low = Math.min(open, close) - Math.random() * 40;
-        let color = close > open ? "#00ff99" : "#ff4444";
-        candles.push(new Candle(x, open, close, high, low, color));
-        x += 15;
+    for (let i = 0; i < canvas.width; i += 40) {
+        let open = Math.random() * (canvas.height / 2) + 100;
+        let close = Math.random() * (canvas.height / 2) + 100;
+        let high = Math.max(open, close) + Math.random() * 50;
+        let low = Math.min(open, close) - Math.random() * 50;
+        candles.push(new Candle(i, open, close, high, low, 20));
     }
 }
 
 function animateCandles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    candles.forEach(candle => candle.draw());
+    candles.forEach(candle => {
+        candle.update();
+        candle.draw();
+    });
+
+    // Remove off-screen candles
+    if (candles[0].x < -40) {
+        candles.shift();
+        let open = Math.random() * (canvas.height / 2) + 100;
+        let close = Math.random() * (canvas.height / 2) + 100;
+        let high = Math.max(open, close) + Math.random() * 50;
+        let low = Math.min(open, close) - Math.random() * 50;
+        candles.push(new Candle(canvas.width, open, close, high, low, 20));
+    }
+
     requestAnimationFrame(animateCandles);
 }
 
-// Start animation
-generateCandles();
+createCandles();
 animateCandles();
