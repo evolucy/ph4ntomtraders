@@ -10,19 +10,57 @@ body {
     background-color: #0f1624;
     color: white;
     text-align: center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Centering Content */
-.container {
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff99;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00ff99;
+}
+
+/* Hero Section */
+.hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    padding: 50px;
+    text-align: center;
 }
 
 /* Headline */
@@ -35,7 +73,7 @@ body {
 
 /* Subtext */
 .subtext {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 30px;
     opacity: 0.8;
 }
@@ -55,11 +93,38 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    margin: 10px;
 }
 
 .join-btn:hover, .get-started:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px #00ff99;
+}
+
+/* Sections */
+#features, #contact {
+    padding: 50px 10%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #00ff99;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .headline {
+        font-size: 40px;
+    }
+    .subtext {
+        font-size: 18px;
+    }
+    .join-btn, .get-started {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
 }
 
 /* Background Particles (Only for PC) */
@@ -70,11 +135,10 @@ canvas {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media (max-width: 768px) {
     canvas {
-        display: block;
+        display: none; /* Hide particles on mobile */
     }
 }
