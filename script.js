@@ -1,27 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const joinNowBtn = document.querySelector(".join-now");
     const getStartedBtn = document.querySelector(".get-started");
-    const priceContainer = document.querySelector(".price-container");
+    const pricingSection = document.querySelector(".pricing");
     const priceCards = document.querySelectorAll(".price-card");
 
-    // Initially hide pricing plans
-    priceContainer.style.display = "none";
+    // Initially hide the pricing section with smooth transition
+    pricingSection.style.display = "none";
+    pricingSection.style.opacity = "0";
+    pricingSection.style.transition = "opacity 0.5s ease-in-out";
 
-    // Show pricing plans when 'Get Started' is clicked
     getStartedBtn.addEventListener("click", () => {
-        priceContainer.style.display = "flex";
+        pricingSection.style.display = "block";
+        setTimeout(() => {
+            pricingSection.style.opacity = "1";
+        }, 10);
     });
 
-    // Redirect to payment when any price plan is clicked
-    priceCards.forEach((card, index) => {
+    priceCards.forEach(card => {
+        card.style.transition = "transform 0.3s, background-color 0.3s";
+        
+        card.addEventListener("mouseenter", () => {
+            card.style.transform = "scale(1.1) rotateY(10deg)";
+            card.style.backgroundColor = "lime";
+            card.style.color = "black";
+        });
+        
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "scale(1) rotateY(0deg)";
+            card.style.backgroundColor = "#111";
+            card.style.color = "white";
+        });
+        
         card.addEventListener("click", () => {
-            let paymentLinks = [
-                "https://payment.com/2days",  // 2 Days Free Trial
-                "https://payment.com/1month", // 1 Month Plan
-                "https://payment.com/3months", // 3 Months Plan
-                "https://payment.com/6months", // 6 Months Plan
-                "https://payment.com/lifetime" // Lifetime Plan
-            ];
-            window.open(paymentLinks[index], "_blank");
+            card.style.animation = "explode 0.5s ease-out";
+            setTimeout(() => {
+                window.open("https://payment-gateway.com", "_blank");
+            }, 300);
         });
     });
+
+    // Add explosion effect keyframes dynamically
+    const style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.5; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
 });
