@@ -1,17 +1,23 @@
-// Ensure the DOM is fully loaded before running the script
+// Ensure DOM is loaded before executing JavaScript
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded and ready!");
+    console.log("DOM fully loaded!");
 
-    // Initialize particles.js for animated background
-    particlesJS.load('particles-js', 'particles-config.json', function() {
-        console.log('Particles.js loaded successfully.');
+    // Load particles.js for animated background
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 100 },
+            "size": { "value": 3 },
+            "color": { "value": "#00ff99" },
+            "line_linked": { "enable": true, "color": "#00ff99" },
+            "move": { "speed": 3 }
+        }
     });
 
-    // Display a random quote when the page loads
+    // Display random quote on load
     displayRandomQuote();
 });
 
-// Function to display random trading quotes
+// Function to display a random trading quote
 function displayRandomQuote() {
     const quotes = [
         "The market is a battlefield, trade wisely.",
@@ -21,22 +27,17 @@ function displayRandomQuote() {
         "Opportunities come to those who wait."
     ];
 
-    // Get the quote element
+    // Select the quote element
     let quoteElement = document.getElementById("quote");
 
-    // Check if element exists before modifying it
     if (quoteElement) {
         let randomIndex = Math.floor(Math.random() * quotes.length);
         quoteElement.innerText = quotes[randomIndex];
-        console.log("New Quote Displayed:", quotes[randomIndex]);
+        console.log("New Quote:", quotes[randomIndex]);
     } else {
-        console.error("Element with ID 'quote' not found! Make sure the ID is correct in your HTML.");
+        console.error("Element with ID 'quote' not found!");
     }
 }
 
-// Event listener for button click to generate a new quote
-document.addEventListener("click", function(event) {
-    if (event.target.classList.contains("join-btn")) {
-        displayRandomQuote();
-    }
-});
+// Event listener for button click
+document.querySelector(".join-btn").addEventListener("click", displayRandomQuote);
