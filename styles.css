@@ -1,29 +1,55 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #111;
+    background-color: #0d0d0d;
     color: white;
     text-align: center;
 }
 
+/* Header */
 header {
-    background-color: black;
-    padding: 15px;
+    background-color: #111;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
 }
 
+h1 {
+    margin-left: 20px;
+    color: #00f7ff;
+    font-size: 28px;
+}
+
+/* Navigation */
 nav a {
-    color: cyan;
-    margin: 0 10px;
+    color: #00ff99;
+    margin: 0 15px;
     text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff00ff;
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    font-size: 36px;
     font-weight: bold;
 }
 
-.hero {
-    padding: 50px 20px;
+#quote {
+    font-style: italic;
+    color: #ddd;
 }
 
 .buttons {
@@ -31,58 +57,77 @@ nav a {
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 25px;
+    font-size: 18px;
     margin: 5px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .join-btn {
-    background-color: green;
+    background-color: #00ff99;
+    color: black;
+}
+
+.join-btn:hover {
+    background-color: #009966;
     color: white;
 }
 
 .get-started {
-    background-color: blue;
+    background-color: #ff00ff;
     color: white;
 }
 
+.get-started:hover {
+    background-color: #9900cc;
+}
+
+/* Pricing Section */
 .hidden {
     display: none;
 }
 
 #pricing {
     margin-top: 50px;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 10px;
+    padding: 30px;
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .pricing-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
 }
 
 .pricing-card {
-    background-color: #333;
-    padding: 15px;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #222, #444);
+    padding: 20px;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    width: 150px;
+    width: 180px;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
+    color: #00f7ff;
+    font-weight: bold;
+    border: 2px solid #00f7ff;
 }
 
 .pricing-card:hover {
-    background-color: #555;
+    background: linear-gradient(135deg, #444, #666);
+    border-color: #ff00ff;
+    color: white;
 }
 
+/* Features & Contact */
 #features, #contact {
     margin-top: 50px;
-    padding: 20px;
+    padding: 30px;
 }
