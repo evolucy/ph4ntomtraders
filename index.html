@@ -7,43 +7,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Navigation Bar -->
     <header>
+        <h1>PH4NTOM TRADERS</h1>
         <nav>
-            <div class="logo">PH4NTOM TRADERS</div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <!-- Hero Section (Center) -->
-    <div class="hero">
-        <h1 class="headline">PH4NTOM TRADERS</h1>
-        <p class="subtext" id="quote">"Risk comes from not knowing what you're doing!"</p>
+    <section class="hero">
+        <h2>PH4NTOM TRADERS</h2>
+        <p id="quote">"Risk comes from not knowing what you're doing!"</p>
         <div class="buttons">
             <button class="join-btn">JOIN NOW</button>
-            <button class="get-started">GET STARTED</button>
+            <button class="get-started" onclick="scrollToPricing()">GET STARTED</button>
         </div>
-    </div>
+    </section>
 
-    <!-- Bottom Section -->
+    <section id="pricing">
+        <h2>Pricing Plans</h2>
+        <div class="pricing-container">
+            <div class="price-card">2 Days Free Trial</div>
+            <div class="price-card">1 Month - ₹3,999</div>
+            <div class="price-card">3 Months - ₹5,999</div>
+            <div class="price-card">6 Months - ₹9,999</div>
+            <div class="price-card">Lifetime Access - ₹14,999</div>
+        </div>
+    </section>
+
     <section id="features">
         <h2>Features</h2>
-        <p>✔ Advanced Trading Strategies</p>
-        <p>✔ Real-time Market Analysis</p>
-        <p>✔ AI-powered Trading Insights</p>
+        <ul>
+            <li>✔ Advanced Trading Strategies</li>
+            <li>✔ Real-time Market Analysis</li>
+            <li>✔ AI-powered Trading Insights</li>
+        </ul>
     </section>
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: ph4ntomroom08@gmail.com</p>
-        <p>WHATSAPP: +91 756 66 174 81</p>
+        <p>Email: ph4ntomroot08@gmail.com</p>
+        <p>WhatsApp: 7566617481</p>
     </section>
-
-    <canvas id="background"></canvas> <!-- Particles for PC -->
 
     <script src="script.js"></script>
 </body>
