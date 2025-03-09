@@ -1,20 +1,75 @@
-// Array of trading motivational quotes
-const quotes = [
-    "Trade what you see, not what you think.",
-    "The market is a device for transferring money from the impatient to the patient.",
-    "Risk comes from not knowing what you're doing.",
-    "The goal of a successful trader is to make the best trades. Money is secondary.",
-    "Amateurs think about how much money they can make. Professionals think about how much they could lose.",
-    "Trade with a plan, or plan to fail.",
-    "Be fearful when others are greedy and greedy when others are fearful.",
-];
+document.addEventListener("DOMContentLoaded", function () {
+    // Canvas Animation
+    const canvas = document.getElementById("tradingCanvas");
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-// Function to display a random quote
-function displayRandomQuote() {
-    const quoteElement = document.getElementById("quote");
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteElement.textContent = quotes[randomIndex];
-}
+        let particles = [];
+        const colors = ["#00ff99", "#00cc77", "#008855"];
 
-// Display a random quote on page load
-window.onload = displayRandomQuote;
+        class Particle {
+            constructor(x, y, radius, color, velocity) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.velocity = velocity;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            update() {
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                if (this.x < 0 || this.x > canvas.width) this.velocity.x *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.velocity.y *= -1;
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let radius = Math.random() * 3 + 1;
+                let color = colors[Math.floor(Math.random() * colors.length)];
+                let velocity = {
+                    x: (Math.random() - 0.5) * 2,
+                    y: (Math.random() - 0.5) * 2
+                };
+                particles.push(new Particle(x, y, radius, color, velocity));
+            }
+        }
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle) => particle.update());
+        }
+
+        initParticles();
+        animateParticles();
+    }
+
+    // Quotes Change Effect
+    const quotes = [
+        "Trade with confidence, profit with patience.",
+        "The market rewards discipline, not emotion.",
+        "A great trader sees what others miss.",
+        "Consistency is the key to trading success."
+    ];
+    let quoteIndex = 0;
+    setInterval(() => {
+        document.getElementById("quote").innerText = quotes[quoteIndex];
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+    }, 5000);
+});
