@@ -17,14 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setInterval(changeQuote, 3000); // Change every 3 sec
 
-    // Particles Background Animation (Only for PC)
+    // Particle Background Animation for PC Only
     const canvas = document.getElementById('background');
-    if (canvas && window.innerWidth > 768) { // Enable only for PC
+    if (canvas && window.innerWidth > 768) { // Only for PC
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         let particlesArray = [];
+        const numParticles = window.innerWidth > 1200 ? 100 : 50;
 
         class Particle {
             constructor() {
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function initParticles() {
             particlesArray = [];
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < numParticles; i++) {
                 particlesArray.push(new Particle());
             }
         }
