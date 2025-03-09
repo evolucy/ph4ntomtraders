@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset Styles */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     background-color: #0f1624;
     color: white;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -61,15 +61,16 @@ nav ul li a:hover {
     height: 100vh;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .headline {
     font-size: 72px;
     font-weight: bold;
     margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
     text-transform: uppercase;
     text-shadow: 0 0 20px #00ff99;
-    animation: fadeIn 2s ease-in-out;
 }
 
 @keyframes fadeIn {
