@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const getStartedBtn = document.querySelector(".get-started");
     const pricingSection = document.querySelector(".pricing");
     const priceCards = document.querySelectorAll(".price-card");
+    const quoteText = document.querySelector(".hero p");
+
+    // Trading Quotes List
+    const quotes = [
+        "Risk comes from not knowing what you're doing!",
+        "Trade smart, not hard!",
+        "Discipline beats strategy every time!",
+        "The market rewards patience, not impulse!",
+        "Control your emotions, control your trades!",
+        "Winners are not afraid of losing!",
+        "Every trade is a lesson, win or lose!"
+    ];
+
+    // Function to update quotes every 5 seconds
+    function updateQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        quoteText.textContent = quotes[randomIndex];
+    }
+    setInterval(updateQuote, 5000);
 
     // Initially hide the pricing section with smooth transition
     pricingSection.style.display = "none";
