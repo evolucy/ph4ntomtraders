@@ -1,4 +1,4 @@
-/* Reset Styles */
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -7,57 +7,111 @@
 }
 
 body {
-    background: #0f1624;
-    overflow: hidden;
-    text-align: center;
+    background-color: #0f1624;
     color: white;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Background Canvas */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Particle Background */
+#particles-js {
+    position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
 }
 
-/* Content */
-.content {
-    position: relative;
-    z-index: 10;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(27, 39, 53, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff99;
+    text-shadow: 0 0 10px #00ff99;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00ff99;
+}
+
+/* Hero Section */
+.hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 50px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px #00ff99;
-}
-
-p {
-    font-size: 20px;
-    opacity: 0.8;
+.headline {
+    font-size: 72px;
+    font-weight: bold;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px #00ff99;
 }
 
+.subtext {
+    font-size: 24px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Quote */
+.quote {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00ff99;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Button */
 .join-btn {
-    background: #00ff99;
+    background-color: #00ff99;
+    color: #000;
     padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .join-btn:hover {
-    background: #00cc77;
+    background-color: #00cc77;
     box-shadow: 0 0 20px #00ff99;
 }
