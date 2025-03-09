@@ -1,33 +1,29 @@
-/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
-    background: #121212;
+    background-color: #111;
     color: white;
+    text-align: center;
 }
 
-/* Header */
 header {
+    background-color: black;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background: black;
-    position: fixed;
-    width: 100%;
-    top: 0;
+    align-items: center;
 }
 
 nav a {
-    color: white;
-    margin: 0 15px;
+    color: cyan;
+    margin: 0 10px;
     text-decoration: none;
+    font-weight: bold;
 }
 
-/* Hero Section */
 .hero {
-    margin-top: 100px;
+    padding: 50px 20px;
 }
 
 .buttons {
@@ -36,50 +32,57 @@ nav a {
 
 button {
     padding: 10px 20px;
-    border: none;
-    margin: 5px;
-    cursor: pointer;
     font-size: 16px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .join-btn {
-    background: #28a745;
+    background-color: green;
     color: white;
 }
 
 .get-started {
-    background: #007bff;
+    background-color: blue;
     color: white;
-}
-
-/* Pricing Section */
-#pricing {
-    margin-top: 50px;
-}
-
-.pricing-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.pricing-card {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 150px;
 }
 
 .hidden {
     display: none;
 }
 
-/* Features & Contact */
-#features, #contact {
+#pricing {
     margin-top: 50px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
 }
 
-#contact a {
-    color: #00ffcc;
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.pricing-card {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 150px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.pricing-card:hover {
+    background-color: #555;
+}
+
+#features, #contact {
+    margin-top: 50px;
+    padding: 20px;
 }
