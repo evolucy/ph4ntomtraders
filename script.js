@@ -15,30 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
             quoteIndex = (quoteIndex + 1) % quotes.length;
         }
     }
-    setInterval(changeQuote, 3000);
+    setInterval(changeQuote, 3000); // Change every 3 sec
 
-    // Particle Background (Only for PC)
+    // Particles Background Animation (Only for PC)
     const canvas = document.getElementById('background');
-    if (canvas && window.innerWidth >= 1024) {
+    if (canvas && window.innerWidth > 768) { // Enable only for PC
         const ctx = canvas.getContext('2d');
-
-        function setCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        setCanvasSize();
-        window.addEventListener("resize", setCanvasSize);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
         let particlesArray = [];
-        let totalParticles = 20; // PC के लिए 20 particles
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = (Math.random() * 0.5) - 0.25;
-                this.speedY = (Math.random() * 0.5) - 0.25;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
             }
             update() {
                 this.x += this.speedX;
@@ -47,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
             }
             draw() {
-                ctx.fillStyle = 'rgba(0, 255, 153, 0.3)';
+                ctx.fillStyle = 'rgba(0, 255, 153, 0.5)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -56,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function initParticles() {
             particlesArray = [];
-            for (let i = 0; i < totalParticles; i++) {
+            for (let i = 0; i < 100; i++) {
                 particlesArray.push(new Particle());
             }
         }
@@ -67,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 particle.update();
                 particle.draw();
             });
-            setTimeout(() => requestAnimationFrame(animateParticles), 50);
+            requestAnimationFrame(animateParticles);
         }
 
         initParticles();
