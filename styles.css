@@ -15,18 +15,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-/* Responsive Container */
-.container {
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
+    flex-direction: column;
 }
 
 /* Animated Headline */
 .headline {
-    font-size: 5vw; /* Responsive Font */
+    font-size: 72px;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 0 0 20px #00ff99;
@@ -40,7 +34,7 @@ body {
 }
 
 .subtext {
-    font-size: 2.5vw; /* Responsive */
+    font-size: 24px;
     margin-bottom: 30px;
     opacity: 0.8;
     animation: fadeIn 2s ease-in-out;
@@ -49,16 +43,13 @@ body {
 /* Buttons */
 .buttons {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
 }
 
 .join-btn, .get-started {
     background: linear-gradient(90deg, #00ff99, #00cc77);
     color: black;
-    padding: 12px 25px;
-    font-size: 1.2rem;
+    padding: 15px 30px;
+    font-size: 18px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
@@ -81,9 +72,16 @@ canvas {
     z-index: -1;
 }
 
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .headline { font-size: 7vw; }
-    .subtext { font-size: 3vw; }
-    .join-btn, .get-started { font-size: 1rem; padding: 10px 20px; }
+    .headline {
+        font-size: 50px;
+    }
+    .subtext {
+        font-size: 20px;
+    }
+    .join-btn, .get-started {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
 }
