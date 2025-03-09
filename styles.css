@@ -14,15 +14,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full screen height */
+    height: 100vh; /* पूरा viewport height */
 }
 
-/* Centering Hero Section */
+/* Centering Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Hero Section Center */
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 20px;
 }
 
 /* Animated Headline */
@@ -42,16 +52,16 @@ body {
 
 .subtext {
     font-size: 24px;
-    margin: 20px 0;
+    margin-bottom: 30px;
     opacity: 0.8;
     animation: fadeIn 2s ease-in-out;
-    transition: opacity 0.5s ease-in-out;
 }
 
 /* Buttons */
 .buttons {
     display: flex;
     gap: 20px;
+    margin-top: 20px;
 }
 
 .join-btn, .get-started {
