@@ -74,13 +74,11 @@ nav a {
 .join-now {
     background-color: lime;
     color: black;
-    font-weight: bold;
 }
 
 .get-started {
     background-color: magenta;
     color: white;
-    font-weight: bold;
 }
 
 .btn:hover {
@@ -89,6 +87,7 @@ nav a {
 
 .pricing {
     padding: 50px;
+    display: none;
 }
 
 .pricing h2 {
