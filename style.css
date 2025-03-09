@@ -6,6 +6,7 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* Body Styling */
 body {
     background-color: #0f1624;
     color: white;
@@ -14,15 +15,15 @@ body {
     position: relative;
 }
 
-/* Particle Background */
+/* Background Particles */
 #particles-js {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -1;
 }
 
-/* Navbar */
+/* Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -72,13 +73,13 @@ nav ul li a:hover {
     height: 100vh;
     text-align: center;
     position: relative;
-    overflow: hidden;
 }
 
 .headline {
     font-size: 72px;
     font-weight: bold;
     margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
     text-transform: uppercase;
     text-shadow: 0 0 20px #00ff99;
 }
@@ -87,15 +88,7 @@ nav ul li a:hover {
     font-size: 24px;
     margin-bottom: 30px;
     opacity: 0.8;
-}
-
-/* Quote */
-.quote {
-    font-size: 28px;
-    font-weight: bold;
-    color: #00ff99;
-    margin-top: 20px;
-    animation: fadeIn 2s ease-in-out;
+    animation: floatText 3s infinite alternate ease-in-out;
 }
 
 /* Button */
@@ -114,4 +107,24 @@ nav ul li a:hover {
 .join-btn:hover {
     background-color: #00cc77;
     box-shadow: 0 0 20px #00ff99;
+}
+
+/* Quote */
+.quote {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00ff99;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatText {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
 }
