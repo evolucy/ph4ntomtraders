@@ -61,17 +61,39 @@ nav ul li a {
 }
 
 .headline {
-    font-size: 48px;
+    font-size: 72px;
     font-weight: bold;
     margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out, glow 3s infinite alternate;
+    text-transform: uppercase;
 }
 
 .headline span {
     color: #00ff99;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 15px #00ff99;
+    }
+    100% {
+        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99;
+    }
+}
+
 .subtext {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 30px;
     opacity: 0.8;
 }
