@@ -1,131 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
-    background-color: #0d0d0d;
+    font-family: Arial, sans-serif;
+    background-color: #111;
     color: white;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: black;
+    background-color: #222;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 600;
+.nav-link {
     color: cyan;
-}
-
-.highlight {
-    color: lime;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    color: lime;
     text-decoration: none;
-    font-weight: 600;
+    margin-left: 15px;
 }
 
 .hero {
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+    padding: 50px;
 }
 
 .btn {
     padding: 10px 20px;
-    font-size: 16px;
+    margin: 10px;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 18px;
     border-radius: 5px;
 }
 
-.join-now {
-    background-color: lime;
+.green {
+    background-color: limegreen;
     color: black;
 }
 
-.get-started {
-    background-color: magenta;
-    color: white;
-}
-
-.btn:hover {
-    transform: scale(1.1);
+.pink {
+    background-color: hotpink;
+    color: black;
 }
 
 .pricing {
-    padding: 50px;
+    display: none;
+    padding: 20px;
 }
 
-.pricing h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.price-container {
+.pricing-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-.price-card {
-    background-color: #111;
-    padding: 15px 20px;
+.pricing-btn {
+    background: transparent;
     border: 2px solid cyan;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    min-width: 150px;
-    transition: 0.3s;
-}
-
-.price-card:hover {
-    background-color: cyan;
-    color: black;
-}
-
-footer {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #111;
-}
-
-footer a {
-    display: block;
     color: cyan;
-    text-decoration: none;
-    margin-top: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.pricing-btn:hover {
+    background: cyan;
+    color: black;
 }
