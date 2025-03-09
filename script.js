@@ -1,12 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const joinNowBtn = document.querySelector(".join-now");
-    const getStartedBtn = document.querySelector(".get-started");
+document.addEventListener("DOMContentLoaded", function () {
+    const getStartedBtn = document.getElementById("get-started");
+    const pricingSection = document.getElementById("pricing-section");
+    const pricingButtons = document.querySelectorAll(".pricing-btn");
 
-    joinNowBtn.addEventListener("click", () => {
-        alert("Joining Phantom Traders...");
+    // Hide pricing section initially
+    pricingSection.style.display = "none";
+
+    getStartedBtn.addEventListener("click", function () {
+        pricingSection.style.display = "block";
     });
 
-    getStartedBtn.addEventListener("click", () => {
-        alert("Getting Started with Phantom Traders...");
+    pricingButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const price = this.getAttribute("data-price");
+            window.location.href = `payment.html?amount=${price}`;
+        });
     });
 });
