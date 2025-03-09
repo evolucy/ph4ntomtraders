@@ -13,7 +13,63 @@ body {
     overflow: hidden;
 }
 
-/* Hero Section */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(27, 39, 53, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff99;
+    text-shadow: 0 0 10px #00ff99;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00ff99;
+}
+
+.cta {
+    background-color: #00ff99;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cta:hover {
+    transform: scale(1.1);
+    background-color: #00cc77;
+}
+
 .hero {
     display: flex;
     flex-direction: column;
@@ -22,21 +78,47 @@ body {
     height: 100vh;
     text-align: center;
     position: relative;
-    z-index: 10;
+    overflow: hidden;
 }
 
 .headline {
     font-size: 72px;
     font-weight: bold;
     margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
     text-transform: uppercase;
     text-shadow: 0 0 20px #00ff99;
+}
+
+.headline span {
+    color: #00ff99;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .subtext {
     font-size: 24px;
     margin-bottom: 30px;
     opacity: 0.8;
+    animation: floatText 3s infinite alternate ease-in-out;
+}
+
+@keyframes floatText {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
 }
 
 .join-btn {
@@ -56,7 +138,7 @@ body {
     box-shadow: 0 0 20px #00ff99;
 }
 
-/* 3D Candlestick Background */
+/* Background Canvas */
 canvas {
     position: absolute;
     top: 0;
