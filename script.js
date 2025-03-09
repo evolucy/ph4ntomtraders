@@ -15,14 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
             quoteIndex = (quoteIndex + 1) % quotes.length;
         }
     }
-    setInterval(changeQuote, 3000); // Change every 3 sec
+    setInterval(changeQuote, 3000);
 
-    // Particle Background Optimization
+    // Particle Background (Only for PC)
     const canvas = document.getElementById('background');
-    if (canvas) {
+    if (canvas && window.innerWidth >= 1024) {
         const ctx = canvas.getContext('2d');
 
-        // Set Canvas Size
         function setCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -31,17 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("resize", setCanvasSize);
 
         let particlesArray = [];
-        let totalParticles = window.innerWidth < 768 ? 5 : 30; // Mobile = 5, PC = 30
-        let fps = 30; // Low FPS for Performance Boost
-        let now, then = Date.now(), interval = 1000 / fps, delta;
+        let totalParticles = 20; // PC के लिए 20 particles
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5; // Smaller Particles for less lag
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = (Math.random() * 0.5) - 0.25;
+                this.speedY = (Math.random() * 0.5) - 0.25;
             }
             update() {
                 this.x += this.speedX;
@@ -65,17 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function animateParticles() {
-            now = Date.now();
-            delta = now - then;
-            if (delta > interval) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particlesArray.forEach(particle => {
-                    particle.update();
-                    particle.draw();
-                });
-                then = now - (delta % interval);
-            }
-            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            setTimeout(() => requestAnimationFrame(animateParticles), 50);
         }
 
         initParticles();
