@@ -1,56 +1,66 @@
-/* Reset styles */
-body, html {
+/* Global Styling */
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
     background: #000;
     color: white;
 }
 
-/* Background Effect */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #001f3f;
-    z-index: -1;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-/* Main Content */
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
     text-align: center;
+    padding: 100px 20px;
+    background: url('https://source.unsplash.com/1600x900/?trading,stocks') no-repeat center center/cover;
+    color: white;
 }
 
-/* Heading */
-h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-/* Quote */
-#quote {
-    font-size: 1.2rem;
+.hero h1 {
+    font-size: 48px;
     margin-bottom: 20px;
-    font-style: italic;
 }
 
-/* Button */
-.join-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #00ff99;
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    background: #ff7300;
+    color: white;
     border: none;
     cursor: pointer;
+    font-size: 18px;
     transition: 0.3s;
 }
 
-.join-btn:hover {
-    background: #00cc77;
+.btn:hover {
+    background: #ff5400;
 }
