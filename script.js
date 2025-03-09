@@ -31,17 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("resize", setCanvasSize);
 
         let particlesArray = [];
-        let totalParticles = window.innerWidth < 768 ? 30 : 80; // Mobile = 30, Desktop = 80
-        let fps = 40; // FPS limit for smooth performance
+        let totalParticles = window.innerWidth < 768 ? 5 : 30; // Mobile = 5, PC = 30
+        let fps = 30; // Low FPS for Performance Boost
         let now, then = Date.now(), interval = 1000 / fps, delta;
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 2 - 1;
-                this.speedY = Math.random() * 2 - 1;
+                this.size = Math.random() * 2 + 0.5; // Smaller Particles for less lag
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
             }
             update() {
                 this.x += this.speedX;
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
             }
             draw() {
-                ctx.fillStyle = 'rgba(0, 255, 153, 0.5)';
+                ctx.fillStyle = 'rgba(0, 255, 153, 0.3)';
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
