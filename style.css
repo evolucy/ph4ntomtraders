@@ -1,4 +1,4 @@
-/* Reset Styles */
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -53,61 +53,6 @@ nav ul li a:hover {
     color: #00ff99;
 }
 
-.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.headline {
-    font-size: 72px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px #00ff99;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.subtext {
-    font-size: 24px;
-    margin-bottom: 30px;
-    opacity: 0.8;
-    animation: floatText 3s infinite alternate ease-in-out;
-}
-
-@keyframes floatText {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(10px);
-    }
-}
-
-.quote {
-    font-size: 28px;
-    font-weight: bold;
-    color: #00ff99;
-    margin-top: 20px;
-    animation: fadeIn 2s ease-in-out;
-}
-
 .join-btn {
     background-color: #00ff99;
     color: #000;
@@ -125,7 +70,42 @@ nav ul li a:hover {
     box-shadow: 0 0 20px #00ff99;
 }
 
-/* Futuristic Background Animation */
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.headline {
+    font-size: 72px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px #00ff99;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.subtext {
+    font-size: 24px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.quote {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00ff99;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Background Animation */
 @keyframes moveBackground {
     0% {
         transform: translateY(0);
@@ -142,4 +122,14 @@ nav ul li a:hover {
     height: 300%;
     background: radial-gradient(circle, rgba(0,255,153,0.2) 0%, rgba(15,22,36,0) 70%);
     animation: moveBackground 5s infinite alternate ease-in-out;
+}
+
+/* Canvas Styling */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
