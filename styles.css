@@ -11,33 +11,21 @@ body {
     color: white;
     text-align: center;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
 }
 
-/* Animated Headline */
+/* Headline (Professional Look, No Glow) */
 .headline {
-    font-size: 72px;
+    font-size: 60px;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 0 0 20px #00ff99;
-    animation: glitch 1.5s infinite alternate;
+    color: #00ffcc; /* Professional Cyan Color */
 }
 
-/* Glitch Effect */
-@keyframes glitch {
-    0% { text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99; }
-    100% { text-shadow: 0 0 30px #00ff99, 0 0 60px #00ff99; }
-}
-
+/* Subtext */
 .subtext {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 30px;
     opacity: 0.8;
-    animation: fadeIn 2s ease-in-out;
 }
 
 /* Buttons */
@@ -46,7 +34,7 @@ body {
 }
 
 .join-btn, .get-started {
-    background: linear-gradient(90deg, #00ff99, #00cc77);
+    background: linear-gradient(90deg, #00ffcc, #0077ff);
     color: black;
     padding: 15px 30px;
     font-size: 18px;
@@ -59,10 +47,10 @@ body {
 
 .join-btn:hover, .get-started:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px #00ff99;
+    box-shadow: 0 0 20px #00ffcc;
 }
 
-/* Background Particles */
+/* Background Particles (Only for PC) */
 canvas {
     position: fixed;
     top: 0;
@@ -70,18 +58,25 @@ canvas {
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    display: none; /* Default में Hide */
 }
 
-/* Responsive Design */
+/* Responsive Styles */
+@media (min-width: 1024px) {
+    canvas {
+        display: block; /* सिर्फ PC/Laptop में Show होगा */
+    }
+}
+
 @media (max-width: 768px) {
     .headline {
-        font-size: 50px;
+        font-size: 40px;
     }
     .subtext {
-        font-size: 20px;
+        font-size: 18px;
     }
     .join-btn, .get-started {
-        padding: 12px 25px;
         font-size: 16px;
+        padding: 12px 25px;
     }
 }
