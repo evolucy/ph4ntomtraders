@@ -26,12 +26,13 @@ class Candle {
     }
 
     update() {
-        this.y -= 2; // 🆕 Candles continuously upar jayenge
-
-        // 🆕 Agar candle screen ke upar chali jaye, toh neeche se ek naya candle aaye
+        this.y -= 1; // Move candles upwards (uptrend effect)
+        
+        // Reset candles when they move out of view
         if (this.y + this.height < 0) {
             this.y = canvas.height;
             this.height = Math.random() * 40 + 20;
+            this.bullish = Math.random() > 0.3; // 70% bullish, 30% bearish
         }
 
         this.draw();
@@ -42,7 +43,7 @@ function initCandles() {
     candles = [];
     for (let i = 0; i < canvas.width / 15; i++) {
         let height = Math.random() * 40 + 20;
-        let y = canvas.height - i * 50; // 🆕 Candles ek line me neeche se upar aayenge
+        let y = canvas.height - height;
         candles.push(new Candle(i * 15, y, height, true));
     }
 }
@@ -53,9 +54,11 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
+// Initialize the candles and start animation
 initCandles();
 animate();
 
+// Resize event to adjust canvas
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
