@@ -19,21 +19,21 @@
 
     <section class="hero">
         <h1>PH4NTOM <span class="highlight">TRADERS</span></h1>
-        <p>"Risk comes from not knowing what you're doing!"</p>
+        <p id="trading-quote">"Risk comes from not knowing what you're doing!"</p>
         <div class="buttons">
-            <button class="btn join-now">JOIN NOW</button>
-            <button class="btn get-started">GET STARTED</button>
+            <button class="btn join-now" onclick="joinTelegram()">JOIN NOW</button>
+            <button class="btn get-started" onclick="showPricing()">GET STARTED</button>
         </div>
     </section>
 
-    <section class="pricing">
+    <section class="pricing" id="pricing-section" style="display: none;">
         <h2>Pricing Plans</h2>
         <div class="price-container">
-            <div class="price-card">2 Days Free Trial</div>
-            <div class="price-card">1 Month ₹3,999</div>
-            <div class="price-card">3 Months ₹5,999</div>
-            <div class="price-card">6 Months ₹9,999</div>
-            <div class="price-card">Lifetime Access ₹14,999</div>
+            <div class="price-card" onclick="redirectToPayment('free')">2 Days Free Trial</div>
+            <div class="price-card" onclick="redirectToPayment('1month')">1 Month ₹3,999</div>
+            <div class="price-card" onclick="redirectToPayment('3months')">3 Months ₹5,999</div>
+            <div class="price-card" onclick="redirectToPayment('6months')">6 Months ₹9,999</div>
+            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access ₹14,999</div>
         </div>
     </section>
 
