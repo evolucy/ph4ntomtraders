@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pricingSection = document.getElementById("pricing-section");
     const pricingButtons = document.querySelectorAll(".pricing-btn");
 
+    // अगर कोई element null है तो error को रोकने के लिए return कर दो
     if (!getStartedBtn || !pricingSection) {
         console.error("Error: Required elements not found!");
         return;
@@ -18,7 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     pricingButtons.forEach(button => {
         button.addEventListener("click", function () {
             const price = this.getAttribute("data-price");
-            window.location.href = `payment.html?amount=${price}`;
+            if (price) {
+                window.location.href = `payment.html?amount=${price}`;
+            } else {
+                console.error("Error: No price found for this button!");
+            }
         });
     });
 });
