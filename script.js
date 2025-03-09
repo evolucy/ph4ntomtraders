@@ -1,8 +1,7 @@
-// Ensure DOM is loaded before executing JavaScript
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded!");
+    console.log("DOM fully loaded and ready!");
 
-    // Load particles.js for animated background
+    // Initialize Particles.js with Direct Configuration
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 100 },
@@ -27,13 +26,12 @@ function displayRandomQuote() {
         "Opportunities come to those who wait."
     ];
 
-    // Select the quote element
     let quoteElement = document.getElementById("quote");
 
     if (quoteElement) {
         let randomIndex = Math.floor(Math.random() * quotes.length);
         quoteElement.innerText = quotes[randomIndex];
-        console.log("New Quote:", quotes[randomIndex]);
+        console.log("New Quote Displayed:", quotes[randomIndex]);
     } else {
         console.error("Element with ID 'quote' not found!");
     }
