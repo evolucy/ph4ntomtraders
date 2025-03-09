@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Changing Quotes with Fade Effect
+    // Changing Quotes
     const quotes = [
         '"Trade smart, trade fearless!"',
         '"Patience + Discipline = Profits!"',
@@ -11,12 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function changeQuote() {
         const quoteElement = document.getElementById("quote");
         if (quoteElement) {
-            quoteElement.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                quoteElement.innerText = quotes[quoteIndex];
-                quoteElement.style.opacity = 1; // Fade in
-                quoteIndex = (quoteIndex + 1) % quotes.length;
-            }, 500); // Delay for fade effect
+            quoteElement.innerText = quotes[quoteIndex];
+            quoteIndex = (quoteIndex + 1) % quotes.length;
         }
     }
     setInterval(changeQuote, 3000); // Change every 3 sec
@@ -29,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         canvas.height = window.innerHeight;
 
         let particlesArray = [];
-        const mouse = { x: null, y: null };
 
         class Particle {
             constructor() {
@@ -42,19 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-
-                // Bounce from edges
                 if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
                 if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-
-                // Mouse attraction effect
-                const dx = this.x - mouse.x;
-                const dy = this.y - mouse.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    this.x -= dx * 0.02;
-                    this.y -= dy * 0.02;
-                }
             }
             draw() {
                 ctx.fillStyle = 'rgba(0, 255, 153, 0.5)';
@@ -79,19 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             requestAnimationFrame(animateParticles);
         }
-
-        // Resize Event
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
-        });
-
-        // Mouse Move Event
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
 
         initParticles();
         animateParticles();
