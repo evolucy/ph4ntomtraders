@@ -41,7 +41,7 @@
         <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
         <a href="tel:7566617481">WhatsApp: 7566617481</a>
         <nav>
-            <ul>
+            <ul class="footer-links">
                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
                 <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
                 <li><a href="refund-policy.html">Refund Policy</a></li>
@@ -50,5 +50,24 @@
             </ul>
         </nav>
     </footer>
+
+    <style>
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-links li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </body>
 </html>
