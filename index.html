@@ -9,11 +9,6 @@
 <body>
     <header>
         <div class="logo">PH4NTOM <span class="highlight">TRADERS</span></div>
-        <nav>
-            <ul>
-                <li><a href="#pricing-section">Pricing</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section class="hero">
@@ -36,12 +31,6 @@
         </div>
     </section>
 
-    <section class="telegram">
-        <h2>Join Our Telegram Channel</h2>
-        <p>Stay updated with our latest trading strategies and insights.</p>
-        <a href="https://t.me/ph4ntomtraders" class="btn telegram-link">Join Telegram</a>
-    </section>
-
     <footer id="contact">
         <p>Contact Us</p>
         <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
@@ -56,6 +45,16 @@
             </ul>
         </nav>
     </footer>
+
+    <script>
+        function joinTelegram() {
+            window.location.href = "https://t.me/ph4ntomtraders";
+        }
+
+        function showPricing() {
+            document.getElementById("pricing-section").style.display = "block";
+        }
+    </script>
 
     <style>
         .footer-links {
@@ -73,18 +72,6 @@
         .footer-links a {
             text-decoration: none;
             color: white;
-        }
-        .telegram {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .telegram-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0088cc;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
         }
     </style>
 </body>
