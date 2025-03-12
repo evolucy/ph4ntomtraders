@@ -9,17 +9,6 @@
 <body>
     <header>
         <div class="logo">Ph4ntom <span class="highlight">Traders</span></div>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="showPricing()">Pricing</a></li>
-                <li><a href="#" onclick="joinTelegram()">Join Telegram</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
-                <li><a href="refund-policy.html">Refund Policy</a></li>
-                <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section class="hero">
@@ -42,24 +31,10 @@
         </div>
     </section>
 
-    <section id="tradingview-details" class="tradingview-form" style="display: none;">
-        <h2>TradingView Access Details</h2>
-        <p>Enter your TradingView Username and Email to get access.</p>
-        <form id="tradingview-form">
-            <label for="username">TradingView Username:</label>
-            <input type="text" id="username" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-
     <footer>
-        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms & Conditions</a> | <a href="refund-policy.html">Refund Policy</a> | <a href="shipping-delivery.html">Shipping & Delivery</a> | <a href="contact-us.html">Contact Us</a></p>
-        <p>Contact us: <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a></p>
-        <p>WhatsApp: 75666 17481</p>
+        <p style="text-align: center;"><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms & Conditions</a> | <a href="refund-policy.html">Refund Policy</a> | <a href="shipping-delivery.html">Shipping & Delivery</a> | <a href="contact-us.html">Contact Us</a></p>
+        <p style="text-align: center;">Contact us: <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a></p>
+        <p style="text-align: center;">WhatsApp: 75666 17481</p>
     </footer>
 
     <script>
@@ -75,10 +50,10 @@
             alert("Redirecting to payment...");
             setTimeout(() => {
                 alert("Payment Successful!");
-                document.getElementById("pricing-section").style.display = "none";
-                document.getElementById("tradingview-details").style.display = "block";
+                window.location.href = "tradingview-details.html";
             }, 2000);
         }
     </script>
 </body>
 </html>
+
