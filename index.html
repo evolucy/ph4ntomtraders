@@ -9,6 +9,17 @@
 <body>
     <header>
         <div class="logo">Ph4ntom <span class="highlight">Traders</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPricing()">Pricing</a></li>
+                <li><a href="#" onclick="joinTelegram()">Join Telegram</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                <li><a href="refund-policy.html">Refund Policy</a></li>
+                <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
@@ -50,10 +61,9 @@
             alert("Redirecting to payment...");
             setTimeout(() => {
                 alert("Payment Successful!");
-                window.location.href = "tradingview-details.html";
+                window.open("tradingview-details.html", "_blank"); // नए टैब में खुलेगा
             }, 2000);
         }
     </script>
 </body>
 </html>
-
