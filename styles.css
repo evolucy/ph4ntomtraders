@@ -15,7 +15,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
     background-color: black;
 }
@@ -28,18 +28,6 @@ header {
 
 .highlight {
     color: lime;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    color: lime;
-    text-decoration: none;
-    font-weight: 600;
 }
 
 .hero {
@@ -123,6 +111,25 @@ footer {
     margin-top: 50px;
     padding: 20px;
     background-color: #111;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-links li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
 }
 
 footer a {
