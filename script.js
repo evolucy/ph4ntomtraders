@@ -13,9 +13,6 @@ function redirectToPayment(plan) {
     let paymentLink = "";
     
     switch(plan) {
-        case 'free':
-            paymentLink = "https://yourpaymentlink.com/free";
-            break;
         case '1month':
             paymentLink = "https://yourpaymentlink.com/1month";
             break;
