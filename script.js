@@ -48,5 +48,5 @@ document.addEventListener("DOMContentLoaded", () => {
         quoteElement.textContent = quotes[randomIndex];
     }
 
-    setInterval(updateQuote, 5000); // Change quote every 5 seconds
+    setInterval(updateQuote, 5000);
 });
