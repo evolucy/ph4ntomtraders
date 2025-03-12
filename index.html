@@ -34,11 +34,11 @@
     <section id="pricing-section" class="pricing">
         <h2>Choose Your Plan</h2>
         <div class="price-container">
-            <div class="price-card" onclick="redirectToPayment('free')">2 Days Free Trial</div>
-            <div class="price-card" onclick="redirectToPayment('1month')">1 Month – ₹3,999</div>
-            <div class="price-card" onclick="redirectToPayment('3months')">3 Months – ₹5,999</div>
-            <div class="price-card" onclick="redirectToPayment('6months')">6 Months – ₹9,999</div>
-            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access – ₹14,999</div>
+            <div class="price-card" onclick="redirectToFakePayment('free')">2 Days Free Trial</div>
+            <div class="price-card" onclick="redirectToFakePayment('1month')">1 Month – ₹3,999</div>
+            <div class="price-card" onclick="redirectToFakePayment('3months')">3 Months – ₹5,999</div>
+            <div class="price-card" onclick="redirectToFakePayment('6months')">6 Months – ₹9,999</div>
+            <div class="price-card" onclick="redirectToFakePayment('lifetime')">Lifetime Access – ₹14,999</div>
         </div>
     </section>
 
@@ -62,6 +62,23 @@
         <p>WhatsApp: 75666 17481</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function joinTelegram() {
+            window.open("https://t.me/ph4ntomtraders", "_blank");
+        }
+
+        function showPricing() {
+            document.getElementById("pricing-section").style.display = "block";
+        }
+
+        function redirectToFakePayment(plan) {
+            alert("Redirecting to payment...");
+            setTimeout(() => {
+                alert("Payment Successful!");
+                document.getElementById("pricing-section").style.display = "none";
+                document.getElementById("tradingview-details").style.display = "block";
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
