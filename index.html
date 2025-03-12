@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PH4NTOM TRADERS</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
     <header>
@@ -24,10 +23,10 @@
     <section class="pricing" id="pricing-section" style="display: none;">
         <h2>Pricing Plans</h2>
         <div class="price-container">
-            <div class="price-card" onclick="startPayment('3999', '1 Month Plan')">1 Month ₹3,999</div>
-            <div class="price-card" onclick="startPayment('5999', '3 Months Plan')">3 Months ₹5,999</div>
-            <div class="price-card" onclick="startPayment('9999', '6 Months Plan')">6 Months ₹9,999</div>
-            <div class="price-card" onclick="startPayment('14999', 'Lifetime Access')">Lifetime Access ₹14,999</div>
+            <div class="price-card" onclick="fakePayment('1 Month Plan')">1 Month ₹3,999</div>
+            <div class="price-card" onclick="fakePayment('3 Months Plan')">3 Months ₹5,999</div>
+            <div class="price-card" onclick="fakePayment('6 Months Plan')">6 Months ₹9,999</div>
+            <div class="price-card" onclick="fakePayment('Lifetime Access')">Lifetime Access ₹14,999</div>
         </div>
     </section>
 
@@ -35,15 +34,6 @@
         <p>Contact Us</p>
         <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
         <a href="tel:7566617481">WhatsApp: 7566617481</a>
-        <nav>
-            <ul class="footer-links">
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
-                <li><a href="refund-policy.html">Refund Policy</a></li>
-                <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-            </ul>
-        </nav>
     </footer>
 
     <script>
@@ -55,30 +45,11 @@
             document.getElementById("pricing-section").style.display = "block";
         }
 
-        function startPayment(amount, planName) {
+        function fakePayment(planName) {
             alert("Payment Successful!");
             window.location.href = "tradingview-details.html";
         }
     </script>
-
-    <style>
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .footer-links li {
-            list-style: none;
-            margin: 5px 0;
-        }
-        .footer-links a {
-            text-decoration: none;
-            color: white;
-        }
-    </style>
 </body>
 </html>
 
@@ -120,40 +91,11 @@
                 document.getElementById("confirmation-message").style.display = "block";
                 setTimeout(() => {
                     alert("Your TradingView Access Request has been submitted!");
-                    window.location.href = "index.html"; // Redirect to homepage
+                    window.location.href = "index.html"; 
                 }, 2000);
             }
         });
     </script>
-
-    <style>
-        .container {
-            width: 40%;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
-            background: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
 </body>
 </html>
+
