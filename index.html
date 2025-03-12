@@ -9,17 +9,6 @@
 <body>
     <header>
         <div class="logo">Ph4ntom <span class="highlight">Traders</span></div>
-        <nav>
-            <ul>
-                <li><a href="#" onclick="showPricing()">Pricing</a></li>
-                <li><a href="#" onclick="joinTelegram()">Join Telegram</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
-                <li><a href="refund-policy.html">Refund Policy</a></li>
-                <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section class="hero">
@@ -43,9 +32,15 @@
     </section>
 
     <footer>
-        <p style="text-align: center;"><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms & Conditions</a> | <a href="refund-policy.html">Refund Policy</a> | <a href="shipping-delivery.html">Shipping & Delivery</a> | <a href="contact-us.html">Contact Us</a></p>
-        <p style="text-align: center;">Contact us: <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a></p>
-        <p style="text-align: center;">WhatsApp: 75666 17481</p>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-and-conditions.html">Terms & Conditions</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="shipping-delivery.html">Shipping & Delivery</a> | 
+            <a href="contact-us.html">Contact Us</a>
+        </div>
+        <p>Contact us: <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a></p>
+        <p>WhatsApp: 75666 17481</p>
     </footer>
 
     <script>
@@ -61,9 +56,33 @@
             alert("Redirecting to payment...");
             setTimeout(() => {
                 alert("Payment Successful!");
-                window.open("tradingview-details.html", "_blank"); // नए टैब में खुलेगा
+                window.open("tradingview-details.html", "_blank");
             }, 2000);
         }
     </script>
+
+    <style>
+        .footer-links {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+
 </body>
 </html>
