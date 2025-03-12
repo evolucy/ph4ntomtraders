@@ -34,6 +34,15 @@
         <p>Contact Us</p>
         <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
         <a href="tel:7566617481">WhatsApp: 7566617481</a>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                <li><a href="refund-policy.html">Refund Policy</a></li>
+                <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
     </footer>
 
     <script>
@@ -73,7 +82,12 @@
             
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required>
-
+            
+            <label>
+                <input type="checkbox" id="terms" required>
+                I agree to the <a href="terms-and-conditions.html">Terms & Conditions</a>
+            </label>
+            
             <button type="submit">Submit</button>
         </form>
 
@@ -86,8 +100,9 @@
             
             let username = document.getElementById("username").value;
             let email = document.getElementById("email").value;
+            let termsChecked = document.getElementById("terms").checked;
             
-            if(username && email) {
+            if(username && email && termsChecked) {
                 document.getElementById("confirmation-message").style.display = "block";
                 setTimeout(() => {
                     alert("Your TradingView Access Request has been submitted!");
@@ -98,4 +113,3 @@
     </script>
 </body>
 </html>
-
