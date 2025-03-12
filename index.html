@@ -3,82 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PH4NTOM TRADERS</title>
+    <title>Ph4ntom Traders</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
     <header>
-        <div class="logo">PH4NTOM <span class="highlight">TRADERS</span></div>
+        <div class="logo">Ph4ntom <span class="highlight">Traders</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPricing()">Pricing</a></li>
+                <li><a href="#" onclick="joinTelegram()">Join Telegram</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
-        <h1>PH4NTOM <span class="highlight">TRADERS</span></h1>
-        <p id="trading-quote">"Risk comes from not knowing what you're doing!"</p>
+        <h1>Welcome to Ph4ntom Traders</h1>
+        <p>Get the best TradingView indicators to boost your trading performance!</p>
         <div class="buttons">
-            <button class="btn join-now" onclick="joinTelegram()">JOIN NOW</button>
-            <button class="btn get-started" onclick="showPricing()">GET STARTED</button>
+            <button class="btn join-now" onclick="joinTelegram()">Join Now</button>
+            <button class="btn get-started" onclick="showPricing()">Get Started</button>
         </div>
     </section>
 
-    <section class="pricing" id="pricing-section" style="display: none;">
-        <h2>Pricing Plans</h2>
+    <section id="pricing-section" class="pricing">
+        <h2>Choose Your Plan</h2>
         <div class="price-container">
-            <div class="price-card" onclick="redirectToPayment(3999, '1 Month Plan')">1 Month ₹3,999</div>
-            <div class="price-card" onclick="redirectToPayment(5999, '3 Months Plan')">3 Months ₹5,999</div>
-            <div class="price-card" onclick="redirectToPayment(9999, '6 Months Plan')">6 Months ₹9,999</div>
-            <div class="price-card" onclick="redirectToPayment(14999, 'Lifetime Access')">Lifetime Access ₹14,999</div>
+            <div class="price-card" onclick="redirectToPayment('free')">2 Days Free Trial</div>
+            <div class="price-card" onclick="redirectToPayment('1month')">1 Month – ₹3,999</div>
+            <div class="price-card" onclick="redirectToPayment('3months')">3 Months – ₹5,999</div>
+            <div class="price-card" onclick="redirectToPayment('6months')">6 Months – ₹9,999</div>
+            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access – ₹14,999</div>
         </div>
     </section>
 
-    <footer id="contact">
-        <p>Contact Us</p>
-        <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
-        <a href="tel:7566617481">WhatsApp: 7566617481</a>
-        <nav>
-            <ul class="footer-links">
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
-                <li><a href="refund-policy.html">Refund Policy</a></li>
-                <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-            </ul>
-        </nav>
+    <section id="tradingview-details" class="tradingview-form" style="display: none;">
+        <h2>TradingView Access Details</h2>
+        <p>Enter your TradingView Username and Email to get access.</p>
+        <form id="tradingview-form">
+            <label for="username">TradingView Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Contact us: <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a></p>
+        <p>WhatsApp: 75666 17481</p>
     </footer>
 
-    <script>
-        function joinTelegram() {
-            window.open("https://t.me/ph4ntomtraders", "_blank");
-        }
-
-        function showPricing() {
-            document.getElementById("pricing-section").style.display = "block";
-        }
-
-        function redirectToPayment(amount, planName) {
-            var options = {
-                "key": "YOUR_RAZORPAY_KEY_HERE", // Replace with your Razorpay Key
-                "amount": amount * 100, // Amount in paisa (₹1 = 100 paisa)
-                "currency": "INR",
-                "name": "PH4NTOM TRADERS",
-                "description": planName,
-                "image": "your-logo-url.png",
-                "handler": function (response) {
-                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-                },
-                "prefill": {
-                    "name": "Customer Name",
-                    "email": "customer@example.com",
-                    "contact": "9999999999"
-                },
-                "theme": {
-                    "color": "#3399cc"
-                }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.open();
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
