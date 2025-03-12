@@ -3,178 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ph4ntom Traders - Exclusive Access</title>
+    <title>PH4NTOM TRADERS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🔥 Ph4ntom Traders 🔥</h1>
-        <p>"शेयर बाजार एक खेल नहीं, यह धैर्य और ज्ञान की परीक्षा है।"</p>
-        <p>"हमारी टीम आपके ट्रेडिंग सफर को आसान और प्रॉफिटेबल बनाएगी।"</p>
+    <header>
+        <div class="logo">PH4NTOM <span class="highlight">TRADERS</span></div>
+    </header>
 
-        <!-- ✅ Join Now Button (Telegram) -->
-        <button class="join-btn" onclick="joinTelegram()">🚀 Join Now</button>
-
-        <!-- ✅ Get Started Button (Opens Pricing) -->
-        <button class="get-started-btn" onclick="showPricing()">💰 Get Started</button>
-
-        <!-- ✅ Pricing Section -->
-        <div id="pricing-section" style="display: none;">
-            <h3>💎 Select Your Plan</h3>
-            <button onclick="redirectToFakePayment('2-day-trial')">🎁 2-Day Trial (Free)</button>
-            <button onclick="redirectToFakePayment('1-month')">📅 1 Month - ₹3,999</button>
-            <button onclick="redirectToFakePayment('3-months')">📆 3 Months - ₹5,999</button>
-            <button onclick="redirectToFakePayment('6-months')">📅 6 Months - ₹9,999</button>
-            <button onclick="redirectToFakePayment('lifetime')">🔥 Lifetime - ₹14,999</button>
+    <section class="hero">
+        <h1>PH4NTOM <span class="highlight">TRADERS</span></h1>
+        <p id="trading-quote">"Risk comes from not knowing what you're doing!"</p>
+        <div class="buttons">
+            <button class="btn join-now" onclick="joinTelegram()">JOIN NOW</button>
+            <button class="btn get-started" onclick="showPricing()">GET STARTED</button>
         </div>
+    </section>
 
-        <!-- ✅ TradingView Access Section -->
-        <div id="tradingview-section" style="display: none;">
-            <h2>📈 TradingView Access</h2>
-            <p>✅ Congratulations! Your payment was successful. Please enter your details to get access to our TradingView indicator.</p>
-            
-            <form id="tradingview-form">
-                <label for="username">TradingView Username:</label>
-                <input type="text" id="username" name="username" required>
-                
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-
-                <button type="submit">🚀 Submit</button>
-            </form>
-
-            <p id="confirmation-message" style="display: none; color: green;">✅ Your details have been submitted successfully!</p>
+    <section class="pricing" id="pricing-section" style="display: none;">
+        <h2>Pricing Plans</h2>
+        <div class="price-container">
+            <div class="price-card" onclick="redirectToPayment('1month')">1 Month ₹3,999</div>
+            <div class="price-card" onclick="redirectToPayment('3months')">3 Months ₹5,999</div>
+            <div class="price-card" onclick="redirectToPayment('6months')">6 Months ₹9,999</div>
+            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access ₹14,999</div>
         </div>
-    </div>
+    </section>
 
-    <!-- ✅ Footer with Terms & Conditions -->
-    <footer>
-        <div class="footer-container">
-            <ul>
+    <footer id="contact">
+        <p>Contact Us</p>
+        <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
+        <a href="tel:7566617481">WhatsApp: 7566617481</a>
+        <nav>
+            <ul class="footer-links">
                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
                 <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
                 <li><a href="refund-policy.html">Refund Policy</a></li>
                 <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
                 <li><a href="contact-us.html">Contact Us</a></li>
             </ul>
-            <p>© 2025 Ph4ntom Traders. All Rights Reserved.</p>
-        </div>
+        </nav>
     </footer>
 
-    <!-- ✅ JavaScript Logic -->
     <script>
         function joinTelegram() {
-            window.location.href = "https://t.me/YourTelegramChannel"; // 🔥 Replace with your Telegram channel link
+            window.location.href = "https://t.me/ph4ntomtraders";
         }
 
         function showPricing() {
             document.getElementById("pricing-section").style.display = "block";
         }
 
-        function redirectToFakePayment(plan) {
-            alert("Redirecting to payment...");
-            setTimeout(() => {
-                alert("✅ Payment Successful!");
-                document.getElementById("pricing-section").style.display = "none";
-                document.getElementById("tradingview-section").style.display = "block";
-            }, 2000);
+        function redirectToPayment(plan) {
+            let paymentUrl = `payment.html?plan=${plan}`;
+            window.location.href = paymentUrl;
         }
-
-        document.getElementById("tradingview-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            let username = document.getElementById("username").value;
-            let email = document.getElementById("email").value;
-            
-            if(username && email) {
-                document.getElementById("confirmation-message").style.display = "block";
-                setTimeout(() => {
-                    alert("✅ Your TradingView Access Request has been submitted!");
-                    window.location.href = "index.html"; // Redirect to homepage
-                }, 2000);
-            }
-        });
     </script>
 
-    <!-- ✅ CSS Styling -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 20px;
+            margin-top: 20px;
         }
-        .container {
-            width: 40%;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .join-btn {
-            background: #25D366; /* WhatsApp Green */
-        }
-        .join-btn:hover {
-            background: #1DA851;
-        }
-        .get-started-btn {
-            background: #ff9800; /* Orange */
-        }
-        .get-started-btn:hover {
-            background: #e68900;
-        }
-
-        /* ✅ Footer Styling */
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #222;
-            color: white;
-            text-align: center;
-            font-size: 14px;
-        }
-        .footer-container ul {
+        .footer-links li {
             list-style: none;
-            padding: 0;
+            margin: 5px 0;
         }
-        .footer-container ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        .footer-container ul li a {
-            color: white;
+        .footer-links a {
             text-decoration: none;
-            font-weight: bold;
-        }
-        .footer-container ul li a:hover {
-            text-decoration: underline;
+            color: white;
         }
     </style>
 </body>
 </html>
-
-
-
