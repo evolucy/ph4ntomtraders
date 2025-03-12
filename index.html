@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PH4NTOM TRADERS</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
     <header>
@@ -23,10 +24,10 @@
     <section class="pricing" id="pricing-section" style="display: none;">
         <h2>Pricing Plans</h2>
         <div class="price-container">
-            <div class="price-card" onclick="redirectToPayment('1month')">1 Month ₹3,999</div>
-            <div class="price-card" onclick="redirectToPayment('3months')">3 Months ₹5,999</div>
-            <div class="price-card" onclick="redirectToPayment('6months')">6 Months ₹9,999</div>
-            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access ₹14,999</div>
+            <div class="price-card" onclick="redirectToPayment(3999, '1 Month Plan')">1 Month ₹3,999</div>
+            <div class="price-card" onclick="redirectToPayment(5999, '3 Months Plan')">3 Months ₹5,999</div>
+            <div class="price-card" onclick="redirectToPayment(9999, '6 Months Plan')">6 Months ₹9,999</div>
+            <div class="price-card" onclick="redirectToPayment(14999, 'Lifetime Access')">Lifetime Access ₹14,999</div>
         </div>
     </section>
 
@@ -47,31 +48,37 @@
 
     <script>
         function joinTelegram() {
-            window.location.href = "https://t.me/ph4ntomtraders";
+            window.open("https://t.me/ph4ntomtraders", "_blank");
         }
 
         function showPricing() {
             document.getElementById("pricing-section").style.display = "block";
         }
-    </script>
 
-    <style>
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 20px;
+        function redirectToPayment(amount, planName) {
+            var options = {
+                "key": "YOUR_RAZORPAY_KEY_HERE", // Replace with your Razorpay Key
+                "amount": amount * 100, // Amount in paisa (₹1 = 100 paisa)
+                "currency": "INR",
+                "name": "PH4NTOM TRADERS",
+                "description": planName,
+                "image": "your-logo-url.png",
+                "handler": function (response) {
+                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "name": "Customer Name",
+                    "email": "customer@example.com",
+                    "contact": "9999999999"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
         }
-        .footer-links li {
-            list-style: none;
-            margin: 5px 0;
-        }
-        .footer-links a {
-            text-decoration: none;
-            color: white;
-        }
-    </style>
+    </script>
 </body>
 </html>
+
