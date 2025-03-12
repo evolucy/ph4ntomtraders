@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ph4ntom Traders - TradingView Access</title>
+    <title>Ph4ntom Traders - Exclusive Access</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h2>Ph4ntom Traders</h2>
-        
-        <div id="pricing-section">
-            <h3>Select Your Plan</h3>
-            <button onclick="redirectToFakePayment('2-day-trial')">2-Day Trial (Free)</button>
-            <button onclick="redirectToFakePayment('1-month')">1 Month - ₹3,999</button>
-            <button onclick="redirectToFakePayment('3-months')">3 Months - ₹5,999</button>
-            <button onclick="redirectToFakePayment('6-months')">6 Months - ₹9,999</button>
-            <button onclick="redirectToFakePayment('lifetime')">Lifetime - ₹14,999</button>
+        <h1>🔥 Ph4ntom Traders 🔥</h1>
+        <p>"शेयर बाजार एक खेल नहीं, यह धैर्य और ज्ञान की परीक्षा है।"</p>
+        <p>"हमारी टीम आपके ट्रेडिंग सफर को आसान और प्रॉफिटेबल बनाएगी।"</p>
+
+        <!-- ✅ Join Now Button (Telegram) -->
+        <button class="join-btn" onclick="joinTelegram()">🚀 Join Now</button>
+
+        <!-- ✅ Get Started Button (Opens Pricing) -->
+        <button class="get-started-btn" onclick="showPricing()">💰 Get Started</button>
+
+        <!-- ✅ Pricing Section -->
+        <div id="pricing-section" style="display: none;">
+            <h3>💎 Select Your Plan</h3>
+            <button onclick="redirectToFakePayment('2-day-trial')">🎁 2-Day Trial (Free)</button>
+            <button onclick="redirectToFakePayment('1-month')">📅 1 Month - ₹3,999</button>
+            <button onclick="redirectToFakePayment('3-months')">📆 3 Months - ₹5,999</button>
+            <button onclick="redirectToFakePayment('6-months')">📅 6 Months - ₹9,999</button>
+            <button onclick="redirectToFakePayment('lifetime')">🔥 Lifetime - ₹14,999</button>
         </div>
 
+        <!-- ✅ TradingView Access Section -->
         <div id="tradingview-section" style="display: none;">
-            <h2>TradingView Access</h2>
-            <p>Congratulations! Your payment was successful. Please enter your details to get access to our TradingView indicator.</p>
+            <h2>📈 TradingView Access</h2>
+            <p>✅ Congratulations! Your payment was successful. Please enter your details to get access to our TradingView indicator.</p>
             
             <form id="tradingview-form">
                 <label for="username">TradingView Username:</label>
@@ -30,14 +40,14 @@
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
 
-                <button type="submit">Submit</button>
+                <button type="submit">🚀 Submit</button>
             </form>
 
-            <p id="confirmation-message" style="display: none; color: green;">Your details have been submitted successfully!</p>
+            <p id="confirmation-message" style="display: none; color: green;">✅ Your details have been submitted successfully!</p>
         </div>
     </div>
 
-    <!-- ✅ Professional Footer with Terms & Conditions -->
+    <!-- ✅ Footer with Terms & Conditions -->
     <footer>
         <div class="footer-container">
             <ul>
@@ -51,11 +61,20 @@
         </div>
     </footer>
 
+    <!-- ✅ JavaScript Logic -->
     <script>
+        function joinTelegram() {
+            window.location.href = "https://t.me/YourTelegramChannel"; // 🔥 Replace with your Telegram channel link
+        }
+
+        function showPricing() {
+            document.getElementById("pricing-section").style.display = "block";
+        }
+
         function redirectToFakePayment(plan) {
             alert("Redirecting to payment...");
             setTimeout(() => {
-                alert("Payment Successful!");
+                alert("✅ Payment Successful!");
                 document.getElementById("pricing-section").style.display = "none";
                 document.getElementById("tradingview-section").style.display = "block";
             }, 2000);
@@ -70,13 +89,14 @@
             if(username && email) {
                 document.getElementById("confirmation-message").style.display = "block";
                 setTimeout(() => {
-                    alert("Your TradingView Access Request has been submitted!");
+                    alert("✅ Your TradingView Access Request has been submitted!");
                     window.location.href = "index.html"; // Redirect to homepage
                 }, 2000);
             }
         });
     </script>
 
+    <!-- ✅ CSS Styling -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -102,6 +122,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
         }
         button:hover {
             background: #0056b3;
@@ -112,6 +133,18 @@
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+        }
+        .join-btn {
+            background: #25D366; /* WhatsApp Green */
+        }
+        .join-btn:hover {
+            background: #1DA851;
+        }
+        .get-started-btn {
+            background: #ff9800; /* Orange */
+        }
+        .get-started-btn:hover {
+            background: #e68900;
         }
 
         /* ✅ Footer Styling */
@@ -142,5 +175,6 @@
     </style>
 </body>
 </html>
+
 
 
