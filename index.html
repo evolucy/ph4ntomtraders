@@ -23,10 +23,10 @@
     <section class="pricing" id="pricing-section" style="display: none;">
         <h2>Pricing Plans</h2>
         <div class="price-container">
-            <div class="price-card" onclick="fakePayment('1 Month Plan')">1 Month ₹3,999</div>
-            <div class="price-card" onclick="fakePayment('3 Months Plan')">3 Months ₹5,999</div>
-            <div class="price-card" onclick="fakePayment('6 Months Plan')">6 Months ₹9,999</div>
-            <div class="price-card" onclick="fakePayment('Lifetime Access')">Lifetime Access ₹14,999</div>
+            <div class="price-card" onclick="redirectToPayment('1month')">1 Month ₹3,999</div>
+            <div class="price-card" onclick="redirectToPayment('3months')">3 Months ₹5,999</div>
+            <div class="price-card" onclick="redirectToPayment('6months')">6 Months ₹9,999</div>
+            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access ₹14,999</div>
         </div>
     </section>
 
@@ -53,63 +53,25 @@
         function showPricing() {
             document.getElementById("pricing-section").style.display = "block";
         }
+    </script>
 
-        function fakePayment(planName) {
-            alert("Payment Successful!");
-            window.location.href = "tradingview-details.html";
+    <style>
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
         }
-    </script>
-</body>
-</html>
-
-<!-- TradingView Details Page -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradingView Access</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h2>TradingView Access</h2>
-        <p>Congratulations! Your payment was successful. Please enter your details to get access to our TradingView indicator.</p>
-        
-        <form id="tradingview-form">
-            <label for="username">TradingView Username:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label>
-                <input type="checkbox" id="terms" required>
-                I agree to the <a href="terms-and-conditions.html">Terms & Conditions</a>
-            </label>
-            
-            <button type="submit">Submit</button>
-        </form>
-
-        <p id="confirmation-message" style="display: none; color: green;">Your details have been submitted successfully!</p>
-    </div>
-
-    <script>
-        document.getElementById("tradingview-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            let username = document.getElementById("username").value;
-            let email = document.getElementById("email").value;
-            let termsChecked = document.getElementById("terms").checked;
-            
-            if(username && email && termsChecked) {
-                document.getElementById("confirmation-message").style.display = "block";
-                setTimeout(() => {
-                    alert("Your TradingView Access Request has been submitted!");
-                    window.location.href = "index.html"; 
-                }, 2000);
-            }
-        });
-    </script>
+        .footer-links li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </body>
 </html>
