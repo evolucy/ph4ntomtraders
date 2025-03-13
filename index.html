@@ -7,45 +7,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <header>
-        <div class="logo">PH4NTOM <span class="highlight">TRADERS</span></div>
+        <nav>
+            <div class="logo">PH4NTOM TRADERS</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-
+    
     <section class="hero">
-        <h1>PH4NTOM <span class="highlight">TRADERS</span></h1>
-        <p id="trading-quote">"Risk comes from not knowing what you're doing!"</p>
-        <div class="buttons">
-            <button class="btn get-started" onclick="showPricing()">GET STARTED</button>
-            <a href="showcase.html" class="btn">View Indicators Showcase</a>
-
+        <video autoplay loop muted>
+            <source src="tradingview-clip.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <h1>Welcome to PH4NTOM TRADERS</h1>
+            <p>Revolutionizing Trading with Advanced Indicators</p>
+            <button id="getStarted">Get Started</button>
         </div>
     </section>
-
-    <section class="pricing" id="pricing-section">
-        <h2>Pricing Plans</h2>
-        <div class="price-container">
-            <div class="price-card" onclick="redirectToPayment('1month')">1 Month ₹3,999</div>
-            <div class="price-card" onclick="redirectToPayment('3months')">3 Months ₹5,999</div>
-            <div class="price-card" onclick="redirectToPayment('6months')">6 Months ₹9,999</div>
-            <div class="price-card" onclick="redirectToPayment('lifetime')">Lifetime Access ₹14,999</div>
-        </div>
-    </section>
-
+    
     <footer>
-        <p>Contact Us</p>
-        <a href="mailto:ph4ntomroot08@gmail.com">ph4ntomroot08@gmail.com</a>
-        <a href="tel:7566617481">WhatsApp: 7566617481</a>
-
-        <ul class="footer-links">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
-            <li><a href="refund-policy.html">Refund Policy</a></li>
-            <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+        <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#refund">Refund Policy</a></li>
+            <li><a href="#shipping">Shipping & Delivery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
         </ul>
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
