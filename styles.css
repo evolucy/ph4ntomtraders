@@ -208,3 +208,74 @@ footer p {
     font-size: 0.9rem;
   }
 }
+
+/* Form Section Styles */
+.form-section {
+  padding: 60px 0;
+  background: #2c2c54; /* Dark purple */
+}
+
+.form-section .container {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #1e1e2f; /* Dark background */
+  color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007BFF; /* Blue border on focus */
+  outline: none;
+}
+
+.form-section button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #007BFF; /* Blue button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.form-section button:hover {
+  background: #0056b3; /* Darker blue on hover */
+  transform: scale(1.02);
+}
+
+.form-section p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.form-section a {
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-section a:hover {
+  color: #0056b3;
+}
