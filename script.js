@@ -1,21 +1,7 @@
-// Firebase Import
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth";
-
-// Firebase Config
-const firebaseConfig = {
-  apiKey: "AIzaSyArLG9yX9gStfa5nYVUHp7op2Cx_m7eviw",
-  authDomain: "ph4ntomtraders.firebaseapp.com",
-  projectId: "ph4ntomtraders",
-  storageBucket: "ph4ntomtraders.firebasestorage.app",
-  messagingSenderId: "1032102942239",
-  appId: "1:1032102942239:web:5c86ea9ca59af752b2e72a",
-  measurementId: "G-H9QQF0B9VW"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// Get Started Button Handler
+document.getElementById("getStartedBtn")?.addEventListener("click", () => {
+  window.location.href = "signup.html"; // Redirect to Signup Page
+});
 
 // Auth Form Handler
 document.getElementById("auth-form")?.addEventListener("submit", (e) => {
