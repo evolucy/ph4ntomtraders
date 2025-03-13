@@ -3,38 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up / Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sign Up | Ph4ntom Traders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="form-box">
-            <h2 id="form-title">Sign Up</h2>
-            <form id="auth-form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit" id="submit-btn">Sign Up</button>
-            </form>
-            <p id="toggle-text">Already have an account? <a href="#" id="toggle-link">Login</a></p>
-        </div>
+<body class="bg-gray-900 text-white flex justify-center items-center h-screen">
+
+    <div class="bg-gray-800 p-10 rounded-lg shadow-lg text-center w-96">
+        <h2 class="text-3xl font-bold mb-6">Create an Account</h2>
+
+        <form id="signup-form" class="flex flex-col space-y-4">
+            <input type="email" id="email" placeholder="Email" class="px-4 py-3 rounded bg-gray-700 text-white focus:outline-none" required>
+            <input type="password" id="password" placeholder="Password" class="px-4 py-3 rounded bg-gray-700 text-white focus:outline-none" required>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 py-3 px-6 rounded-lg text-lg">
+                Sign Up
+            </button>
+        </form>
+
+        <p class="mt-4">Already have an account? <a href="login.html" class="text-blue-400 hover:underline">Login</a></p>
     </div>
-    <script>
-        document.getElementById("toggle-link").addEventListener("click", function(event) {
-            event.preventDefault();
-            let title = document.getElementById("form-title");
-            let submitBtn = document.getElementById("submit-btn");
-            let toggleText = document.getElementById("toggle-text");
-            
-            if (title.innerText === "Sign Up") {
-                title.innerText = "Login";
-                submitBtn.innerText = "Login";
-                toggleText.innerHTML = "Don't have an account? <a href='#' id='toggle-link'>Sign Up</a>";
-            } else {
-                title.innerText = "Sign Up";
-                submitBtn.innerText = "Sign Up";
-                toggleText.innerHTML = "Already have an account? <a href='#' id='toggle-link'>Login</a>";
-            }
-        });
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
