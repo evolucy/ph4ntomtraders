@@ -13,7 +13,7 @@ document.getElementById("auth-form")?.addEventListener("submit", (e) => {
 
   if (submitBtn.innerText === "Sign Up") {
     // Signup Process
-    createUserWithEmailAndPassword(auth, email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         alert("Signup Successful!");
         window.location.href = "index.html"; // Redirect to Home Page
@@ -23,7 +23,7 @@ document.getElementById("auth-form")?.addEventListener("submit", (e) => {
       });
   } else {
     // Login Process
-    signInWithEmailAndPassword(auth, email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         alert("Login Successful!");
         window.location.href = "index.html"; // Redirect to Home Page
@@ -40,7 +40,7 @@ document.getElementById("forget-password-form")?.addEventListener("submit", (e) 
 
   let email = document.getElementById("email").value;
 
-  sendPasswordResetEmail(auth, email)
+  firebase.auth().sendPasswordResetEmail(email)
     .then(() => {
       alert("Password reset email sent. Check your inbox!");
       window.location.href = "login.html"; // Redirect to Login Page
@@ -54,7 +54,7 @@ document.getElementById("forget-password-form")?.addEventListener("submit", (e) 
 const logoutBtn = document.getElementById("logout-btn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
-    signOut(auth)
+    firebase.auth().signOut()
       .then(() => {
         alert("Logged out successfully!");
         window.location.href = "signup.html";
