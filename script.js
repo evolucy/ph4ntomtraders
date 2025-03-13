@@ -1,8 +1,8 @@
-// script.js (Firebase Authentication Setup)
-
+// Firebase Import
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyArLG9yX9gStfa5nYVUHp7op2Cx_m7eviw",
   authDomain: "ph4ntomtraders.firebaseapp.com",
@@ -17,44 +17,50 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Signup Function
-document.getElementById("signup-form").addEventListener("submit", (e) => {
+// Auth Form Handler
+document.getElementById("auth-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let submitBtn = document.getElementById("submit-btn");
 
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert("Signup Successful!");
-            window.location.href = "index.html"; // Redirect to Home
-        })
-        .catch((error) => {
-            alert(error.message);
-        });
-});
+    if (submitBtn.innerText === "Sign Up") {
+        // Signup Process
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                alert("Signup Successful!");
+                window.location.href = "index.html"; // Redirect to Home Page
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
 
-// Login Function
-document.getElementById("login-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("login-email").value;
-    const password = document.getElementById("login-password").value;
-
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            alert("Login Successful!");
-            window.location.href = "index.html";
-        })
-        .catch((error) => {
-            alert(error.message);
-        });
+    } else {
+        // Login Process
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                alert("Login Successful!");
+                window.location.href = "index.html"; // Redirect to Home Page
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+    }
 });
 
 // Logout Function
-document.getElementById("logout-btn").addEventListener("click", () => {
-    signOut(auth).then(() => {
-        alert("Logged out successfully!");
-        window.location.href = "signup.html";
-    }).catch((error) => {
-        alert(error.message);
+const logoutBtn = document.getElementById("logout-btn");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        signOut(auth)
+            .then(() => {
+                alert("Logged out successfully!");
+                window.location.href = "signup.html";
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
     });
-});
+}
+
