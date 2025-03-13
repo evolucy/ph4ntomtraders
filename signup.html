@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Ph4ntom Traders</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Ph4ntom Traders</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="auth-container">
-        <h2>Create an Account</h2>
-        <form id="signup-form" class="auth-form">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit" class="btn">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="login.html">Login</a></p>
+  <header>
+    <div class="container">
+      <h1>Signup/Login</h1>
     </div>
+  </header>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-    <script src="script.js"></script>
+  <section class="form-section">
+    <div class="container">
+      <form id="signupForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Signup</button>
+      </form>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        <a href="terms-and-conditions.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
+        <a href="refund-policy.html"><i class="fas fa-undo"></i> Refund Policy</a>
+        <a href="shipping-delivery.html"><i class="fas fa-truck"></i> Shipping & Delivery</a>
+        <a href="contact-us.html"><i class="fas fa-envelope"></i> Contact Us</a>
+      </div>
+      <p>&copy; 2023 Ph4ntom Traders. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
