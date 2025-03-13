@@ -4,27 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ph4ntom Traders</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
 </head>
-<body class="bg-black text-white">
-
-    <!-- Background Video -->
-    <div class="relative w-full h-screen overflow-hidden">
-        <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted>
+<body>
+    <div class="video-container">
+        <video autoplay loop muted>
             <source src="indicator_clip.mp4" type="video/mp4">
         </video>
-        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-
-        <!-- Get Started Button -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <h1 class="text-4xl font-bold mb-6">Unlock Powerful TradingView Indicators</h1>
-            <a href="auth.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">Get Started</a>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Unlock Powerful TradingView Indicators</h1>
+            <a href="auth.html" class="btn">Get Started</a>
         </div>
     </div>
 
-</body>
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-<script src="script.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
