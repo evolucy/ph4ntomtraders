@@ -1,74 +1,70 @@
-// Firebase Initialization
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyArLG9yX9gStfa5nYVUHp7op2Cx_m7eviw",
-  authDomain: "ph4ntomtraders.firebaseapp.com",
-  projectId: "ph4ntomtraders",
-  storageBucket: "ph4ntomtraders.firebasestorage.app",
-  messagingSenderId: "1032102942239",
-  appId: "1:1032102942239:web:5c86ea9ca59af752b2e72a",
-  measurementId: "G-H9QQF0B9VW"
-};
+<script>
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyArLG9yX9gStfa5nYVUHp7op2Cx_m7eviw",
+    authDomain: "ph4ntomtraders.firebaseapp.com",
+    projectId: "ph4ntomtraders",
+    storageBucket: "ph4ntomtraders.firebasestorage.app",
+    messagingSenderId: "1032102942239",
+    appId: "1:1032102942239:web:5c86ea9ca59af752b2e72a",
+    measurementId: "G-H9QQF0B9VW"
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
-// Debug: Console me Firebase Load Check
-console.log("Firebase Loaded:", auth);
-
-// Signup Function
-document.getElementById("signup-form")?.addEventListener("submit", async (e) => {
+  // Signup Function
+  document.getElementById("signup-form")?.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("Signup Success:", userCredential);
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
         alert("Signup Successful!");
         window.location.href = "dashboard.html"; // Redirect to Dashboard
-    } catch (error) {
-        console.error("Signup Error:", error);
+      })
+      .catch((error) => {
         alert(error.message);
-    }
-});
+      });
+  });
 
-// Login Function
-document.getElementById("login-form")?.addEventListener("submit", async (e) => {
+  // Login Function
+  document.getElementById("login-form")?.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
 
-    try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("Login Success:", userCredential);
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
         alert("Login Successful!");
         window.location.href = "dashboard.html"; // Redirect to Dashboard
-    } catch (error) {
-        console.error("Login Error:", error);
+      })
+      .catch((error) => {
         alert(error.message);
-    }
-});
+      });
+  });
 
-// Logout Function
-document.getElementById("logout-btn")?.addEventListener("click", async () => {
-    try {
-        await signOut(auth);
-        alert("Logged out successfully!");
-        window.location.href = "signup.html";
-    } catch (error) {
-        console.error("Logout Error:", error);
-        alert(error.message);
-    }
-});
+  // Logout Function
+  document.getElementById("logout-btn")?.addEventListener("click", () => {
+    auth.signOut().then(() => {
+      alert("Logged out successfully!");
+      window.location.href = "signup.html";
+    }).catch((error) => {
+      alert(error.message);
+    });
+  });
 
-// Auth State Change Listener
-onAuthStateChanged(auth, (user) => {
-    console.log("Auth State Changed:", user);
+  // Check if user is logged in (Auth State Change)
+  auth.onAuthStateChanged((user) => {
     if (!user && window.location.pathname.includes("dashboard.html")) {
-        window.location.href = "signup.html"; // Redirect if not logged in
+      window.location.href = "signup.html"; // If not logged in, redirect to signup
     }
-});
+  });
+
+</script>
