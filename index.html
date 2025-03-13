@@ -3,41 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PH4NTOM TRADERS</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ph4ntom Traders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">PH4NTOM TRADERS</div>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <video autoplay loop muted>
-            <source src="tradingview-clip.mp4" type="video/mp4">
+<body class="bg-black text-white">
+
+    <!-- Background Video -->
+    <div class="relative w-full h-screen overflow-hidden">
+        <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted>
+            <source src="indicator_clip.mp4" type="video/mp4">
         </video>
-        <div class="overlay">
-            <h1>Welcome to PH4NTOM TRADERS</h1>
-            <p>Revolutionizing Trading with Advanced Indicators</p>
-            <button id="getStarted">Get Started</button>
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+
+        <!-- Get Started Button -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+            <h1 class="text-4xl font-bold mb-6">Unlock Powerful TradingView Indicators</h1>
+            <a href="auth.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">Get Started</a>
         </div>
-    </section>
-    
-    <footer>
-        <ul>
-            <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#terms">Terms & Conditions</a></li>
-            <li><a href="#refund">Refund Policy</a></li>
-            <li><a href="#shipping">Shipping & Delivery</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </footer>
-    
-    <script src="script.js"></script>
+    </div>
+
 </body>
 </html>
