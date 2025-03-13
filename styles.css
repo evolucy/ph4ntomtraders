@@ -1,10 +1,10 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #1e1e2f; /* Dark background */
+  color: #ffffff; /* White text */
   line-height: 1.6;
 }
 
@@ -17,44 +17,48 @@ body {
 
 /* Header Section */
 header {
-  background: #333;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
   color: #fff;
-  padding: 60px 0;
+  padding: 100px 0;
   text-align: center;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
 
 header p {
   font-size: 1.2rem;
+  opacity: 0.9;
 }
 
 /* Banner Section */
 .banner {
-  background: #007BFF;
-  color: #fff;
+  background: #2c2c54; /* Dark purple */
   padding: 80px 0;
   text-align: center;
 }
 
 .banner h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
 .banner p {
   font-size: 1.1rem;
+  opacity: 0.9;
   margin-bottom: 30px;
 }
 
 .banner button {
   padding: 15px 30px;
   font-size: 1rem;
-  background: #fff;
-  color: #007BFF;
+  background: #007BFF; /* Blue button */
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -62,12 +66,12 @@ header p {
 }
 
 .banner button:hover {
-  background: #f4f4f4;
+  background: #0056b3; /* Darker blue on hover */
 }
 
 /* Footer Section */
 footer {
-  background: #333;
+  background: #1e1e2f; /* Dark background */
   color: #fff;
   padding: 40px 0;
   text-align: center;
@@ -86,10 +90,11 @@ footer {
 }
 
 .footer-links a:hover {
-  color: #007BFF;
+  color: #007BFF; /* Blue on hover */
 }
 
 footer p {
   font-size: 0.9rem;
   margin-top: 20px;
+  opacity: 0.8;
 }
