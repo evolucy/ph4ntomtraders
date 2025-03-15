@@ -1,150 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PH4NTOM TRADERS - Premium Trading Indicators</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f0f1a;
+  color: #fff;
+}
 
-        body {
-            background: #0d0d0d;
-            color: #fff;
-            text-align: center;
-            overflow-x: hidden;
-        }
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: url('https://source.unsplash.com/1600x900/?trading,stockmarket') no-repeat center center/cover;
-            animation: bgAnimation 10s infinite alternate ease-in-out;
-        }
+/* Header */
+header {
+  background: #1a1a2e;
+  padding: 20px 0;
+}
 
-        @keyframes bgAnimation {
-            0% { filter: brightness(0.9); }
-            100% { filter: brightness(1.1); }
-        }
+header .logo {
+  font-size: 24px;
+  font-weight: 600;
+}
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
 
-        .content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
 
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            animation: fadeIn 2s ease-in-out;
-        }
+.btn-get-started {
+  background: #00b894;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
 
-        p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            animation: fadeIn 3s ease-in-out;
-        }
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+  padding: 100px 0;
+  text-align: center;
+}
 
-        .get-started {
-            margin-top: 20px;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff8c00, #ff2e63);
-            border: none;
-            color: white;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
-            animation: pulse 2s infinite;
-        }
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
 
-        .get-started:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 46, 99, 0.7);
-        }
+.hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); }
-            100% { box-shadow: 0 0 10px rgba(255, 140, 0, 0.5); }
-        }
+.quote-slider p {
+  font-style: italic;
+  color: #00b894;
+}
 
-        footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-        }
+/* Features Section */
+.features {
+  padding: 80px 0;
+  text-align: center;
+}
 
-        footer ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.features h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
 
-        footer ul li a {
-            color: #ff8c00;
-            text-decoration: none;
-            transition: 0.3s;
-            font-weight: bold;
-        }
+.feature-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
 
-        footer ul li a:hover {
-            color: #ff2e63;
-            text-decoration: underline;
-        }
+.card {
+  background: #1a1a2e;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body>
-    <div class="hero">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>Welcome to PH4NTOM TRADERS</h1>
-            <p id="quote">Loading trading wisdom...</p>
-            <button class="get-started">Get Started</button>
-        </div>
-    </div>
-    
-    <footer>
-        <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Refund Policy</a></li>
-            <li><a href="#">Shipping & Delivery</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </footer>
+.card i {
+  font-size: 40px;
+  color: #00b894;
+  margin-bottom: 20px;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* Testimonials Section */
+.testimonials {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.testimonial-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Footer */
+footer {
+  background: #1a1a2e;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feature-cards, .testimonial-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
