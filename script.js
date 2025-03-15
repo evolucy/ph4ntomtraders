@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Reset Password Link
   const resetPasswordLink = document.querySelector('.reset-password-link a');
   const resetPasswordForm = document.getElementById('reset-password');
-  const loginForm = document.getElementById('login');
+  const loginForm = document.getElementById('login'); // Declare loginForm here
 
   if (resetPasswordLink && resetPasswordForm && loginForm) {
     resetPasswordLink.addEventListener('click', (e) => {
@@ -105,8 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Login Form Submission
-  const loginForm = document.getElementById('login-form');
-  if (loginForm) {
+  if (loginForm) { // Use the already declared loginForm variable
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
