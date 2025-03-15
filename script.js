@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Logout Functionality
-  const logoutButton = document.getElementById('logout-button');
+  const logoutButton = document.getElementById('logout-btn'); // Updated ID
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
       signOut(auth)
