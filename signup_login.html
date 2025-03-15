@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup | Login - Ph4ntom Traders</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Signup/Login Section -->
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-tabs">
+        <button class="tab-link active" data-tab="signup">Signup</button>
+        <button class="tab-link" data-tab="login">Login</button>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup" class="auth-form active">
+        <h2>Create Your Account</h2>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Create a password" required>
+          </div>
+          <button type="submit" class="btn-submit">Signup</button>
+        </form>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login" class="auth-form">
+        <h2>Welcome Back!</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn-submit">Login</button>
+        </form>
+        <p class="reset-password-link">
+          <a href="#reset-password">Forgot Password?</a>
+        </p>
+      </div>
+
+      <!-- Reset Password Form -->
+      <div id="reset-password" class="auth-form">
+        <h2>Reset Password</h2>
+        <form id="reset-password-form">
+          <div class="form-group">
+            <label for="reset-email">Email</label>
+            <input type="email" id="reset-email" placeholder="Enter your email" required>
+          </div>
+          <button type="submit" class="btn-submit">Reset Password</button>
+        </form>
+        <p class="back-to-login">
+          <a href="#login">Back to Login</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
