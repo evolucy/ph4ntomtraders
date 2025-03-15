@@ -83,6 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('signup-email').value;
       const password = document.getElementById('signup-password').value;
 
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return;
+      }
+
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           alert('Signup successful! Welcome, ' + userCredential.user.email);
@@ -92,6 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
           let errorMessage = error.message;
           if (error.code === 'auth/email-already-in-use') {
             errorMessage = 'Email already in use. Please use a different email.';
+          } else if (error.code === 'auth/invalid-email') {
+            errorMessage = 'Invalid email address.';
+          } else if (error.code === 'auth/weak-password') {
+            errorMessage = 'Password must be at least 6 characters long.';
           }
           alert('Error: ' + errorMessage);
         });
@@ -115,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
           let errorMessage = error.message;
           if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password') {
             errorMessage = 'Invalid email or password.';
+          } else if (error.code === 'auth/user-not-found') {
+            errorMessage = 'User not found. Please sign up first.';
           }
           alert('Error: ' + errorMessage);
         });
@@ -122,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Reset Password Form Submission
-  const resetPasswordFormSubmit = document.getElementById('reset-password-form'); // Renamed variable
+  const resetPasswordFormSubmit = document.getElementById('reset-password-form');
   if (resetPasswordFormSubmit) {
     resetPasswordFormSubmit.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -137,6 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
           let errorMessage = error.message;
           if (error.code === 'auth/user-not-found') {
             errorMessage = 'User not found. Please check your email address.';
+          } else if (error.code === 'auth/invalid-email') {
+            errorMessage = 'Invalid email address.';
           }
           alert('Error: ' + errorMessage);
         });
@@ -144,14 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Logout Functionality
-  if (window.location.pathname.includes('logout.html')) {
-    signOut(auth)
-      .then(() => {
-        alert('Logged out successfully!');
-        window.location.href = 'index.html';
-      })
-      .catch((error) => {
-        alert('Error: ' + error.message);
-      });
+  const logoutButton = document.getElementById('logout-button');
+  if (logoutButton) {
+    logoutButton.addEventListener('click', () => {
+      signOut(auth)
+        .then(() => {
+          alert('Logged out successfully!');
+          window.location.href = 'index.html';
+        })
+        .catch((error) => {
+          alert('Error: ' + error.message);
+        });
+    });
   }
 });
