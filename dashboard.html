@@ -52,13 +52,33 @@
     </div>
 
     <script>
+        // Buy Indicator Function
         function buyIndicator(indicatorName, price) {
             localStorage.setItem('selectedIndicator', indicatorName);
             localStorage.setItem('indicatorPrice', price);
             window.location.href = "payment.html"; 
         }
+
+        // Logout Functionality
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                // Firebase Sign Out
+                import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+                const auth = getAuth();
+
+                signOut(auth)
+                    .then(() => {
+                        alert('Logged out successfully!');
+                        window.location.href = 'index.html';
+                    })
+                    .catch((error) => {
+                        alert('Error: ' + error.message);
+                    });
+            });
+        }
     </script>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
