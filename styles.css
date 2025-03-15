@@ -331,4 +331,48 @@ footer {
     padding: 12px 24px;
     font-size: 16px;
   }
+
+  .auth-form {
+    padding: 20px;
+  }
+
+  .auth-form h2 {
+    font-size: 20px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+  }
+
+  .btn-submit {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .auth-form {
+    padding: 15px;
+  }
+
+  .auth-form h2 {
+    font-size: 18px;
+  }
+
+  .form-group input {
+    font-size: 12px;
+  }
+
+  .btn-submit {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
