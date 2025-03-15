@@ -35,6 +35,8 @@ header nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 header nav ul li a {
@@ -45,20 +47,6 @@ header nav ul li a {
 
 header nav ul li a:hover {
   color: #00b894;
-}
-
-.btn-get-started {
-  background: linear-gradient(135deg, #00b894, #009d71);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn-get-started:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 184, 148, 0.4);
 }
 
 /* Hero Section */
@@ -88,25 +76,22 @@ header nav ul li a:hover {
   animation: fadeIn 3s ease-in-out;
 }
 
-/* Glass Morphism Cards */
-.card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.btn-get-started {
+  background: linear-gradient(135deg, #00b894, #009d71);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  margin-top: 30px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 184, 148, 0.2);
-}
-
-.card i {
-  font-size: 40px;
-  color: #00b894;
-  margin-bottom: 20px;
+.btn-get-started:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 184, 148, 0.4);
 }
 
 /* Features Section */
@@ -126,6 +111,27 @@ header nav ul li a:hover {
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 184, 148, 0.2);
+}
+
+.card i {
+  font-size: 40px;
+  color: #00b894;
+  margin-bottom: 20px;
 }
 
 /* Credits Section */
@@ -184,34 +190,6 @@ footer {
 
 .social-icons a:hover {
   color: #00b894;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .feature-cards, .testimonial-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
 }
 
 /* Auth Section */
@@ -320,4 +298,37 @@ footer {
 
 .reset-password-link a:hover, .back-to-login a:hover {
   color: #009d71;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feature-cards, .auth-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .btn-get-started {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
 }
