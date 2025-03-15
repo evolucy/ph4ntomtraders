@@ -29,14 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const quoteSlider = document.querySelector('.quote-slider p');
 
   function changeQuote() {
-    if (quoteSlider) { // Check if quoteSlider exists
+    if (quoteSlider) {
       quoteSlider.textContent = quotes[currentQuote];
       currentQuote = (currentQuote + 1) % quotes.length;
     }
   }
 
-  // Start the quote slider
-  if (quoteSlider) { // Check if quoteSlider exists
+  if (quoteSlider) {
     setInterval(changeQuote, 5000);
   }
 
@@ -46,11 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   tabLinks.forEach((tab) => {
     tab.addEventListener('click', () => {
-      // Remove active class from all tabs and forms
       tabLinks.forEach((t) => t.classList.remove('active'));
       authForms.forEach((form) => form.classList.remove('active'));
-
-      // Add active class to clicked tab and corresponding form
       tab.classList.add('active');
       const tabName = tab.getAttribute('data-tab');
       document.getElementById(tabName).classList.add('active');
@@ -60,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Reset Password Link
   const resetPasswordLink = document.querySelector('.reset-password-link a');
   const resetPasswordForm = document.getElementById('reset-password');
-  const loginForm = document.getElementById('login'); // Declare loginForm here
+  const loginForm = document.getElementById('login');
 
   if (resetPasswordLink && resetPasswordForm && loginForm) {
     resetPasswordLink.addEventListener('click', (e) => {
@@ -71,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to Login Link
     const backToLoginLink = document.querySelector('.back-to-login a');
-
     backToLoginLink.addEventListener('click', (e) => {
       e.preventDefault();
       resetPasswordForm.classList.remove('active');
@@ -88,61 +83,61 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('signup-email').value;
       const password = document.getElementById('signup-password').value;
 
-      // Create User with Firebase
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed up successfully
-          const user = userCredential.user;
-          alert('Signup successful! Welcome, ' + user.email);
-          window.location.href = 'dashboard.html'; // Redirect to dashboard
+          alert('Signup successful! Welcome, ' + userCredential.user.email);
+          window.location.href = 'dashboard.html';
         })
         .catch((error) => {
-          // Handle errors
-          const errorMessage = error.message;
+          let errorMessage = error.message;
+          if (error.code === 'auth/email-already-in-use') {
+            errorMessage = 'Email already in use. Please use a different email.';
+          }
           alert('Error: ' + errorMessage);
         });
     });
   }
 
   // Login Form Submission
-  if (loginForm) { // Use the already declared loginForm variable
+  if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const email = document.getElementById('login-email').value;
       const password = document.getElementById('login-password').value;
 
-      // Sign in with Firebase
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Logged in successfully
-          const user = userCredential.user;
-          alert('Login successful! Welcome back, ' + user.email);
-          window.location.href = 'dashboard.html'; // Redirect to dashboard
+          alert('Login successful! Welcome back, ' + userCredential.user.email);
+          window.location.href = 'dashboard.html';
         })
         .catch((error) => {
-          // Handle errors
-          const errorMessage = error.message;
+          let errorMessage = error.message;
+          if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password') {
+            errorMessage = 'Invalid email or password.';
+          }
           alert('Error: ' + errorMessage);
         });
     });
   }
 
   // Reset Password Form Submission
-  const resetPasswordForm = document.getElementById('reset-password-form');
-  if (resetPasswordForm) {
-    resetPasswordForm.addEventListener('submit', (e) => {
+  const resetPasswordFormSubmit = document.getElementById('reset-password-form'); // Renamed variable
+  if (resetPasswordFormSubmit) {
+    resetPasswordFormSubmit.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const email = document.getElementById('reset-email').value;
 
-      // Send Password Reset Email
       sendPasswordResetEmail(auth, email)
         .then(() => {
           alert('Password reset email sent! Check your inbox.');
         })
         .catch((error) => {
-          const errorMessage = error.message;
+          let errorMessage = error.message;
+          if (error.code === 'auth/user-not-found') {
+            errorMessage = 'User not found. Please check your email address.';
+          }
           alert('Error: ' + errorMessage);
         });
     });
@@ -153,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     signOut(auth)
       .then(() => {
         alert('Logged out successfully!');
-        window.location.href = 'index.html'; // Redirect to home page
+        window.location.href = 'index.html';
       })
       .catch((error) => {
         alert('Error: ' + error.message);
