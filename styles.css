@@ -5,6 +5,7 @@ body {
   padding: 0;
   background: #0f0f1a;
   color: #fff;
+  line-height: 1.6;
 }
 
 .container {
@@ -15,13 +16,19 @@ body {
 
 /* Header */
 header {
-  background: #1a1a2e;
+  background: rgba(26, 26, 46, 0.8); /* Glass effect */
+  backdrop-filter: blur(10px);
   padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 header .logo {
   font-size: 24px;
   font-weight: 600;
+  color: #00b894;
 }
 
 header nav ul {
@@ -33,36 +40,73 @@ header nav ul {
 header nav ul li a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #00b894;
 }
 
 .btn-get-started {
-  background: #00b894;
+  background: linear-gradient(135deg, #00b894, #009d71);
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-get-started:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 184, 148, 0.4);
 }
 
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
-  padding: 100px 0;
+  padding: 150px 0 100px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .hero p {
   font-size: 18px;
   margin-bottom: 40px;
+  animation: fadeIn 2.5s ease-in-out;
 }
 
 .quote-slider p {
   font-style: italic;
   color: #00b894;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* Glass Morphism Cards */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 184, 148, 0.2);
+}
+
+.card i {
+  font-size: 40px;
+  color: #00b894;
+  margin-bottom: 20px;
 }
 
 /* Features Section */
@@ -74,25 +118,14 @@ header nav ul li a {
 .features h2 {
   font-size: 36px;
   margin-bottom: 40px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .feature-cards {
   display: flex;
   gap: 20px;
   justify-content: center;
-}
-
-.card {
-  background: #1a1a2e;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-}
-
-.card i {
-  font-size: 40px;
-  color: #00b894;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 /* Testimonials Section */
@@ -105,11 +138,13 @@ header nav ul li a {
   display: flex;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Footer */
 footer {
-  background: #1a1a2e;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
   padding: 40px 0;
   text-align: center;
 }
@@ -122,12 +157,34 @@ footer {
   color: #fff;
   text-decoration: none;
   margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00b894;
 }
 
 .social-icons a {
   color: #fff;
   font-size: 24px;
   margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00b894;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
@@ -135,5 +192,13 @@ footer {
   .feature-cards, .testimonial-cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 }
