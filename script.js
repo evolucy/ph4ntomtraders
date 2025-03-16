@@ -17,10 +17,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Razorpay Integration
-function buyIndicator(indicatorName, price, duration) {
+// Globally declare buyIndicator function
+window.buyIndicator = function (indicatorName, price, duration) {
   const options = {
-    key: 'oOmaqhs1qdVrnb5WOSlNyBA8', // Replace with your Razorpay Key ID
+    key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay Key ID
     amount: price * 100, // Amount in paise (e.g., ₹1999 = 199900)
     currency: 'INR',
     name: 'Ph4ntom Traders',
@@ -43,7 +43,7 @@ function buyIndicator(indicatorName, price, duration) {
 
   const rzp = new Razorpay(options);
   rzp.open();
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   // Slider for quotes
