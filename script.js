@@ -20,7 +20,7 @@ const auth = getAuth(app);
 // Globally declare buyIndicator function
 window.buyIndicator = function (indicatorName, price, duration) {
   const options = {
-    key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay Key ID
+    key: 'oOmaqhs1qdVrnb5WOSlNyBA8', // Replace with your Razorpay Key ID
     amount: price * 100, // Amount in paise (e.g., ₹1999 = 199900)
     currency: 'INR',
     name: 'Ph4ntom Traders',
