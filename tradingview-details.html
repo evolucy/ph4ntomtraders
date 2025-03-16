@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradingView Details | Ph4ntom Traders</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>TradingView Details</h1>
+    <form id="tradingview-form">
+      <div class="form-group">
+        <label for="tradingview-email">TradingView Email</label>
+        <input type="email" id="tradingview-email" placeholder="Enter your TradingView email" required>
+      </div>
+      <div class="form-group">
+        <label for="tradingview-username">TradingView Username</label>
+        <input type="text" id="tradingview-username" placeholder="Enter your TradingView username" required>
+      </div>
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('tradingview-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('tradingview-email').value;
+      const username = document.getElementById('tradingview-username').value;
+      alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
+      // Redirect to congratulations page
+      window.location.href = 'congratulations.html';
+    });
+  </script>
+</body>
+</html>
