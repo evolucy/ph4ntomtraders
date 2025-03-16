@@ -17,6 +17,34 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Razorpay Integration
+function buyIndicator(indicatorName, price, duration) {
+  const options = {
+    key: 'oOmaqhs1qdVrnb5WOSlNyBA8', // Replace with your Razorpay Key ID
+    amount: price * 100, // Amount in paise (e.g., ₹1999 = 199900)
+    currency: 'INR',
+    name: 'Ph4ntom Traders',
+    description: `${indicatorName} - ${duration} Access`,
+    image: 'https://your-website-logo-url.png', // Add your logo URL
+    handler: function (response) {
+      alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
+      // Redirect to TradingView details page
+      window.location.href = 'tradingview-details.html';
+    },
+    prefill: {
+      name: 'User Name', // Replace with user's name (if available)
+      email: 'user@example.com', // Replace with user's email (if available)
+      contact: '9999999999', // Replace with user's contact (if available)
+    },
+    theme: {
+      color: '#00b894', // Customize the theme color
+    },
+  };
+
+  const rzp = new Razorpay(options);
+  rzp.open();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Slider for quotes
   const quotes = [
