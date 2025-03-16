@@ -22,6 +22,8 @@
             animation: fadeInUp 0.5s ease-out;
         }
     </style>
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body class="bg-gray-900 text-white">
 
@@ -115,16 +117,6 @@
 
         </div>
     </div>
-
-    <script>
-        // Buy Indicator Function
-        function buyIndicator(indicatorName, price, duration) {
-            localStorage.setItem('selectedIndicator', indicatorName);
-            localStorage.setItem('indicatorPrice', price);
-            localStorage.setItem('accessDuration', duration);
-            window.location.href = "payment.html"; 
-        }
-    </script>
 
     <!-- Add script.js as a module -->
     <script type="module" src="script.js"></script>
