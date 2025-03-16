@@ -5,23 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Ph4ntom Traders</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.5s ease-out;
-        }
-    </style>
 </head>
 <body class="bg-gray-900 text-white">
 
@@ -33,87 +16,33 @@
     </nav>
 
     <div class="container mx-auto py-10 px-4">
-        <h2 class="text-3xl text-center font-bold mb-10 fade-in-up">Select Your Indicator</h2>
+        <h2 class="text-3xl text-center font-bold mb-10">Select Your Indicator</h2>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Ph4ntom Traders Buy/Sell Indicator -->
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center fade-in-up hover:shadow-xl transition-shadow duration-300">
-                <!-- Indicator Photo (Top) -->
-                <img src="images/buy-sell-indicator.png" alt="Buy/Sell Indicator" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                <!-- Placeholder Image -->
+                <img src="https://via.placeholder.com/400x200" alt="Buy/Sell Indicator" class="w-full h-48 object-cover rounded-lg mb-4">
                 <h3 class="text-xl font-bold text-green-400">Ph4ntom Traders Buy/Sell Indicator</h3>
                 <p class="mt-2 text-gray-400">High-accuracy buy/sell signals for profitable trading.</p>
 
                 <!-- Pricing Plans -->
                 <div class="mt-6 space-y-4">
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹1,999</p>
-                        <p class="text-sm text-gray-300">1 Month Access</p>
-                        <button onclick="buyIndicator('Ph4ntom Buy/Sell', 1999, '1 Month')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹3,999</p>
-                        <p class="text-sm text-gray-300">3 Months Access</p>
-                        <button onclick="buyIndicator('Ph4ntom Buy/Sell', 3999, '3 Months')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹5,999</p>
-                        <p class="text-sm text-gray-300">6 Months Access</p>
-                        <button onclick="buyIndicator('Ph4ntom Buy/Sell', 5999, '6 Months')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹9,999</p>
-                        <p class="text-sm text-gray-300">1 Year Access</p>
-                        <button onclick="buyIndicator('Ph4ntom Buy/Sell', 9999, '1 Year')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
+                    <!-- Pricing plans here -->
                 </div>
             </div>
 
             <!-- Smart Money Concept (SMC) -->
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center fade-in-up hover:shadow-xl transition-shadow duration-300">
-                <!-- Indicator Photo (Top) -->
-                <img src="images/smc-indicator.png" alt="Smart Money Concept" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                <!-- Placeholder Image -->
+                <img src="https://via.placeholder.com/400x200" alt="Smart Money Concept" class="w-full h-48 object-cover rounded-lg mb-4">
                 <h3 class="text-xl font-bold text-green-400">Smart Money Concept (SMC)</h3>
                 <p class="mt-2 text-gray-400">Advanced market structure & order flow.</p>
 
                 <!-- Pricing Plans -->
                 <div class="mt-6 space-y-4">
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹4,999</p>
-                        <p class="text-sm text-gray-300">1 Month Access</p>
-                        <button onclick="buyIndicator('SMC', 4999, '1 Month')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹6,999</p>
-                        <p class="text-sm text-gray-300">3 Months Access</p>
-                        <button onclick="buyIndicator('SMC', 6999, '3 Months')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹9,999</p>
-                        <p class="text-sm text-gray-300">6 Months Access</p>
-                        <button onclick="buyIndicator('SMC', 9999, '6 Months')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div class="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <p class="text-lg font-bold text-green-400">₹14,999</p>
-                        <p class="text-sm text-gray-300">1 Year Access</p>
-                        <button onclick="buyIndicator('SMC', 14999, '1 Year')" class="mt-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
-                            Buy Now
-                        </button>
-                    </div>
+                    <!-- Pricing plans here -->
                 </div>
             </div>
 
