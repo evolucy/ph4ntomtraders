@@ -5,65 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TradingView Details | Ph4ntom Traders</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Add your existing styles here */
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 40px;
-      text-align: center;
-      max-width: 600px;
-      margin: 100px auto;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    h1 {
-      font-size: 24px;
-      color: #00b894;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 14px;
-      color: #fff;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-size: 16px;
-    }
-
-    .btn-submit {
-      background: linear-gradient(135deg, #00b894, #009d71);
-      color: #fff;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-      margin-top: 20px;
-    }
-
-    .btn-submit:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 184, 148, 0.4);
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -77,44 +18,33 @@
         <label for="tradingview-username">TradingView Username</label>
         <input type="text" id="tradingview-username" placeholder="Enter your TradingView username" required>
       </div>
-      <div class="form-group">
-        <label for="mobile-number">Mobile Number</label>
-        <input type="tel" id="mobile-number" placeholder="Enter your mobile number" required>
-      </div>
       <button type="submit" class="btn-submit">Submit</button>
     </form>
   </div>
 
   <script>
-    const form = document.getElementById('tradingview-form');
-    form.addEventListener('submit', (e) => {
+    document.getElementById('tradingview-form').addEventListener('submit', function(e) {
       e.preventDefault();
-
-      // Check if user has already submitted
-      if (localStorage.getItem('formSubmitted') === 'true') {
-        alert('You have already submitted the form in this session.');
-        return;
-      }
-
-      // Collect form data
+      
       const email = document.getElementById('tradingview-email').value;
       const username = document.getElementById('tradingview-username').value;
-      const mobile = document.getElementById('mobile-number').value;
+      
+      // Apna WhatsApp number yahan dal (without +91)
+      const phoneNumber = "8318873808";
+      
+      const message = `TradingView Details:%0AUsername: ${username}%0AEmail: ${email}`;
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+      
+      alert('Details submitted successfully! Redirecting to WhatsApp...');
+      
+      // WhatsApp pe message open hoga
+      window.open(whatsappURL, "_blank");
 
-      // Create Google Form link with pre-filled data
-      const googleFormLink = `https://docs.google.com/forms/d/e/1FAIpQLSf-wZQJYmEDx1an1TIMXFu1J6eTObFGydKQpmWOVEYpuLqT2Q/viewform?usp=header?entry.1234567890=${encodeURIComponent(email)}&entry.9876543210=${encodeURIComponent(username)}&entry.5555555555=${encodeURIComponent(mobile)}`;
-
-      // Redirect user to Google Form
-      window.location.href = googleFormLink;
-
-      // Set flag in local storage
-      localStorage.setItem('formSubmitted', 'true');
+      // Redirect to congratulations page
+      setTimeout(() => {
+        window.location.href = 'congratulations.html';
+      }, 2000);
     });
-
-    // Reset flag if user selects a new price plan
-    function resetFormSubmission() {
-      localStorage.removeItem('formSubmitted');
-    }
   </script>
 </body>
 </html>
