@@ -30,20 +30,15 @@
       const username = document.getElementById('tradingview-username').value;
       
       // Apna WhatsApp number yahan dal (without +91)
-      const phoneNumber = "8318873808";
+      const phoneNumber = "YOUR_NUMBER";
       
       const message = `TradingView Details:%0AUsername: ${username}%0AEmail: ${email}`;
       const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
       
-      alert('Details submitted successfully! Redirecting to WhatsApp...');
+      alert('Details submitted successfully! WhatsApp open ho raha hai...');
       
       // WhatsApp pe message open hoga
       window.open(whatsappURL, "_blank");
-
-      // Redirect to congratulations page
-      setTimeout(() => {
-        window.location.href = 'congratulations.html';
-      }, 2000);
     });
   </script>
 </body>
