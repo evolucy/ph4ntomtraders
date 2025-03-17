@@ -22,12 +22,14 @@
         <label for="phone-number">Phone Number</label>
         <input type="tel" id="phone-number" placeholder="Enter your phone number" required>
       </div>
-      <button type="submit" class="btn-submit">Submit</button>
+      <button type="submit" class="btn-submit" id="submit-btn">Submit</button>
     </form>
   </div>
 
   <script>
     const form = document.getElementById('tradingview-form');
+    const submitBtn = document.getElementById('submit-btn');
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = document.getElementById('tradingview-email').value;
@@ -48,6 +50,8 @@
         body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
       }).then(response => response.json()).then(data => {
         alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
+        submitBtn.disabled = true;  // Button disable kar diya
+        submitBtn.innerText = "Submitted"; // Button ka text change kar diya
         window.location.href = 'congratulations.html';
       }).catch(error => {
         alert('Failed to send details. Please try again!');
