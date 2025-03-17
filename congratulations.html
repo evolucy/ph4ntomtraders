@@ -5,13 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Congratulations | Ph4ntom Traders</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #2ecc71;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .btn-submit {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .btn-submit:hover {
+      background-color: #2980b9;
+    }
+    .highlight {
+      color: #e67e22;
+      font-weight: bold;
+    }
+    #countdown {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e67e22;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Congratulations! 🎉</h1>
-    <p>Your indicator has been successfully added to your TradingView account.</p>
+    <p>Your indicator has been successfully purchased.</p>
+    <p>Your indicator will be added to your TradingView account within <span id="countdown" class="highlight">24:00:00</span>.</p>
     <p>Thank you for choosing Ph4ntom Traders!</p>
     <a href="dashboard.html" class="btn-submit">Back to Dashboard</a>
   </div>
+
+  <script>
+    // Countdown Timer Script
+    let timeLeft = 24 * 60 * 60; // 24 hours in seconds
+    const countdownElement = document.getElementById('countdown');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      const hours = Math.floor(timeLeft / 3600);
+      const minutes = Math.floor((timeLeft % 3600) / 60);
+      const seconds = timeLeft % 60;
+
+      // Format time to always show 2 digits
+      const formattedHours = String(hours).padStart(2, '0');
+      const formattedMinutes = String(minutes).padStart(2, '0');
+      const formattedSeconds = String(seconds).padStart(2, '0');
+
+      countdownElement.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+
+      // Stop the timer when it reaches 0
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        countdownElement.textContent = "00:00:00";
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
