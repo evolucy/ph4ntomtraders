@@ -5,6 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TradingView Details | Ph4ntom Traders</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add your existing styles here */
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      max-width: 600px;
+      margin: 100px auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #00b894;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #00b894, #009d71);
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 184, 148, 0.4);
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -24,13 +83,32 @@
 
   <script>
     const form = document.getElementById('tradingview-form');
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Collect form data
       const email = document.getElementById('tradingview-email').value;
       const username = document.getElementById('tradingview-username').value;
-      alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
-      // Redirect to congratulations page
-      window.location.href = 'congratulations.html';
+
+      try {
+        // Send data to backend
+        const response = await fetch('/send-whatsapp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, username }),
+        });
+
+        if (response.ok) {
+          alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
+          // Redirect to congratulations page
+          window.location.href = 'congratulations.html';
+        } else {
+          alert('Failed to submit details. Please try again.');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('An error occurred. Please try again.');
+      }
     });
   </script>
 </body>
