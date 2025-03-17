@@ -11,8 +11,12 @@
     <h1>TradingView Details</h1>
     <form id="tradingview-form">
       <div class="form-group">
-        <label for="tradingview-email">TradingView Email</label>
-        <input type="email" id="tradingview-email" placeholder="Enter your TradingView email" required>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="tradingview-email">Email</label>
+        <input type="email" id="tradingview-email" placeholder="Enter your email" required>
       </div>
       <div class="form-group">
         <label for="tradingview-username">TradingView Username</label>
@@ -32,6 +36,7 @@
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = document.getElementById('name').value;
       const email = document.getElementById('tradingview-email').value;
       const username = document.getElementById('tradingview-username').value;
       const phone = document.getElementById('phone-number').value;
@@ -40,6 +45,7 @@
       const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Yahan apne bot ka token daalna
 
       const message = `📌 *New TradingView Details Submitted*\n\n` +
+                      `👤 *Name:* ${name}\n` +
                       `📧 *Email:* ${email}\n` +
                       `👤 *Username:* ${username}\n` +
                       `📞 *Phone:* ${phone}`;
