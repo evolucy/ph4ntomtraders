@@ -43,8 +43,8 @@
     const form = document.getElementById('tradingview-form');
     const submitBtn = document.getElementById('submit-btn');
 
-    // Pehle se submit hai to button disable karna
-    if (localStorage.getItem("formSubmitted")) {
+    // Agar pehle se submit ho chuka hai, to button disable kar do
+    if (sessionStorage.getItem("formSubmitted")) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitted";
     }
@@ -75,7 +75,7 @@
       });
 
       // ✅ Submit hone ke baad disable aur redirect
-      localStorage.setItem("formSubmitted", "true");
+      sessionStorage.setItem("formSubmitted", "true");
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitted";
       window.location.href = 'congratulations.html';
