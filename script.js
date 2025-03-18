@@ -24,7 +24,7 @@ if (!window.Razorpay) {
   document.head.appendChild(script);
 }
 
-// Buy Indicator Function
+// Globally define buyIndicator function
 window.buyIndicator = function (indicatorName, price, duration) {
   const options = {
     key: 'rzp_test_VuME3PDnWmW4Pq', // Replace with actual Razorpay Key ID
@@ -51,6 +51,7 @@ window.buyIndicator = function (indicatorName, price, duration) {
   rzp.open();
 };
 
+// DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', () => {
   // Slider for quotes
   const quotes = [
