@@ -40,54 +40,63 @@
   </div>
 
   <script>
-    const form = document.getElementById('tradingview-form');
-    const submitBtn = document.getElementById('submit-btn');
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('tradingview-form');
+        const submitBtn = document.getElementById('submit-btn');
 
-    // Check if form is already submitted
-    if (localStorage.getItem('formSubmitted')) {
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Submitted";
-    }
+        // ✅ Check if form was already submitted
+        if (localStorage.getItem("formSubmitted")) {
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Submitted";
+        }
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-      // Check if form is already submitted
-      if (localStorage.getItem('formSubmitted')) {
-        alert('Form already submitted!');
-        return;
-      }
+            // ✅ Check again before proceeding
+            if (localStorage.getItem("formSubmitted")) {
+                return;
+            }
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('tradingview-email').value;
-      const username = document.getElementById('tradingview-username').value;
-      const phone = document.getElementById('phone-number').value;
-      const pricePlan = document.getElementById('price-plan').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('tradingview-email').value;
+            const username = document.getElementById('tradingview-username').value;
+            const phone = document.getElementById('phone-number').value;
+            const pricePlan = document.getElementById('price-plan').value;
 
-      const chatID = "7976547544";  // Your Telegram Chat ID
-      const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Your bot token
+            const chatID = "7976547544";  // ✅ Apna Telegram Chat ID daal
+            const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // ✅ Apne bot ka token daal
 
-      const message = `📌 *New TradingView Details Submitted*\n\n` +
-                      `👤 *Name:* ${name}\n` +
-                      `📧 *Email:* ${email}\n` +
-                      `👤 *Username:* ${username}\n` +
-                      `📞 *Phone:* ${phone}\n` +
-                      `💰 *Price Plan:* ${pricePlan}`;
+            const message = `📌 *New TradingView Details Submitted*\n\n` +
+                            `👤 *Name:* ${name}\n` +
+                            `📧 *Email:* ${email}\n` +
+                            `👤 *Username:* ${username}\n` +
+                            `📞 *Phone:* ${phone}\n` +
+                            `💰 *Price Plan:* ${pricePlan}`;
 
-      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
-      }).then(response => response.json()).then(data => {
-        alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
-        submitBtn.disabled = true;  // Disable the button
-        submitBtn.innerText = "Submitted"; // Change button text
-        localStorage.setItem('formSubmitted', 'true'); // Mark form as submitted
-        form.reset(); // Reset the form
-        window.location.href = 'congratulations.html'; // Redirect to congrats page
-      }).catch(error => {
-        alert('Failed to send details. Please try again!');
-      });
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
+
+                // ✅ Save submission status in localStorage
+                localStorage.setItem("formSubmitted", "true");
+
+                // ✅ Disable button after submission
+                submitBtn.disabled = true;
+                submitBtn.innerText = "Submitted";
+
+                // ✅ Redirect after submission
+                window.location.href = 'congratulations.html';
+            })
+            .catch(error => {
+                alert('Failed to send details. Please try again!');
+            });
+        });
     });
   </script>
 </body>
