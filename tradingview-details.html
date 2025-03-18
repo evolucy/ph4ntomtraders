@@ -43,15 +43,10 @@
     const form = document.getElementById('tradingview-form');
     const submitBtn = document.getElementById('submit-btn');
 
-    // Unique user ID (Based on email or username)
-    function getUserKey() {
-      return sessionStorage.getItem("userKey") || localStorage.getItem("userKey");
-    }
-
-    // Check if user already submitted
-    if (getUserKey()) {
+    // Agar pehle submit ho chuka hai to button disable rahega
+    if (localStorage.getItem("formSubmitted")) {
       submitBtn.disabled = true;
-      submitBtn.innerText = "Already Submitted";
+      submitBtn.innerText = "Submitted";
     }
 
     form.addEventListener('submit', (e) => {
@@ -62,37 +57,36 @@
       const phone = document.getElementById('phone-number').value;
       const pricePlan = document.getElementById('price-plan').value;
 
-      // Generate unique key for user (based on email or username)
-      const userKey = `submitted_${email || username}`;
-
-      // Prevent multiple submissions
-      if (localStorage.getItem(userKey)) {
-        alert("You have already submitted your details.");
-        return;
-      }
-
       const chatID = "7976547544";  // Tera Telegram Chat ID
-      const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Bot ka token
+      const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Bot Token
 
-      const message = `📌 *New TradingView Details Submitted*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n👤 *Username:* ${username}\n📞 *Phone:* ${phone}\n💰 *Price Plan:* ${pricePlan}`;
+      // ✅ Fixed message format (backticks ` used)
+      const message = `📌 *New TradingView Details Submitted*\n\n
+      👤 *Name:* ${name}\n
+      📧 *Email:* ${email}\n
+      👤 *Username:* ${username}\n
+      📞 *Phone:* ${phone}\n
+      💰 *Price Plan:* ${pricePlan}`;
 
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
-      }).then(response => response.json()).then(data => {
-        alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
-
-        // Store submission status
-        localStorage.setItem(userKey, true);
-        sessionStorage.setItem("userKey", userKey);
-
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Already Submitted";
-
-        window.location.href = 'congratulations.html';
-      }).catch(error => {
-        alert('Failed to send details. Please try again!');
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
+          submitBtn.disabled = true;
+          submitBtn.innerText = "Submitted";
+          localStorage.setItem("formSubmitted", "true"); // Save in localStorage
+          window.location.href = 'congratulations.html';
+        } else {
+          alert('Failed to send details. Please try again!');
+        }
+      })
+      .catch(error => {
+        alert('Error occurred! Please check your internet connection.');
       });
     });
   </script>
