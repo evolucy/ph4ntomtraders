@@ -47,6 +47,7 @@
     if (localStorage.getItem('formSubmitted')) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitted";
+      form.style.display = "none"; // Hide form after submission
     }
 
     form.addEventListener('submit', (e) => {
@@ -78,6 +79,7 @@
           submitBtn.disabled = true;
           submitBtn.innerText = "Submitted";
           localStorage.setItem('formSubmitted', true); // Prevent re-submission
+          form.style.display = "none"; // Hide form after successful submission
           window.location.href = 'congratulations.html';
         } else {
           alert('Failed to send details. Please try again!');
