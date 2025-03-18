@@ -24,14 +24,14 @@ if (!window.Razorpay) {
   document.head.appendChild(script);
 }
 
-// Globally define buyIndicator function
+// Buy Indicator Function
 window.buyIndicator = function (indicatorName, price, duration) {
   const options = {
     key: 'rzp_test_VuME3PDnWmW4Pq', // Replace with actual Razorpay Key ID
     amount: price * 100, // Amount in paise (e.g., ₹1999 = 199900)
     currency: 'INR',
     name: 'Ph4ntom Traders',
-    description: ${indicatorName} - ${duration} Access, // Fixed string interpolation
+    description: `${indicatorName} - ${duration} Access`, // Fixed string interpolation
     image: 'https://your-website-logo-url.png', // Replace with your logo URL
     handler: function (response) {
       alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
@@ -51,7 +51,6 @@ window.buyIndicator = function (indicatorName, price, duration) {
   rzp.open();
 };
 
-// DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', () => {
   // Slider for quotes
   const quotes = [
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const username = document.getElementById('tradingview-username').value;
       const mobile = document.getElementById('mobile-number').value;
 
-      const googleFormLink = https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?entry.1234567890=${encodeURIComponent(email)}&entry.9876543210=${encodeURIComponent(username)}&entry.5555555555=${encodeURIComponent(mobile)};
+      const googleFormLink = `https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?entry.1234567890=${encodeURIComponent(email)}&entry.9876543210=${encodeURIComponent(username)}&entry.5555555555=${encodeURIComponent(mobile)}`;
 
       window.location.href = googleFormLink;
 
