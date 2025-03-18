@@ -15,8 +15,8 @@
         <input type="text" id="name" placeholder="Enter your full name" required>
       </div>
       <div class="form-group">
-        <label for="tradingview-email">Email</label>
-        <input type="email" id="tradingview-email" placeholder="Enter your email" required>
+        <label for="tradingview-email">TradingView Email</label>
+        <input type="email" id="tradingview-email" placeholder="Enter your TradingView email" required>
       </div>
       <div class="form-group">
         <label for="tradingview-username">TradingView Username</label>
@@ -43,48 +43,48 @@
     const form = document.getElementById('tradingview-form');
     const submitBtn = document.getElementById('submit-btn');
 
-    // Check if form is already submitted
-    if (localStorage.getItem('formSubmitted')) {
+    // Check if form was already submitted
+    if (localStorage.getItem('formSubmitted') === 'true') {
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitted";
+      form.style.display = "none"; // Hide form after submission
     }
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-
-      // Check if form is already submitted
-      if (localStorage.getItem('formSubmitted')) {
-        alert('Form already submitted!');
-        return;
-      }
-
+      if (localStorage.getItem('formSubmitted') === 'true') return;
+      
       const name = document.getElementById('name').value;
       const email = document.getElementById('tradingview-email').value;
       const username = document.getElementById('tradingview-username').value;
       const phone = document.getElementById('phone-number').value;
       const pricePlan = document.getElementById('price-plan').value;
 
-      const chatID = "7976547544";  // Your Telegram Chat ID
-      const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Your bot token
+      const chatID = "7976547544";  // Tera Telegram Chat ID
+      const botToken = "YOUR_BOT_TOKEN";  // Yahan apne bot ka token daalna
 
-      const message = `📌 *New TradingView Details Submitted*\n\n` +
-                      `👤 *Name:* ${name}\n` +
-                      `📧 *Email:* ${email}\n` +
-                      `👤 *Username:* ${username}\n` +
-                      `📞 *Phone:* ${phone}\n` +
-                      `💰 *Price Plan:* ${pricePlan}`;
-
+      const message = `\ud83d\udccc *New TradingView Details Submitted*\n\n` +
+                      `\ud83d\udc64 *Name:* ${name}\n` +
+                      `\ud83d\udce7 *Email:* ${email}\n` +
+                      `\ud83d\udc64 *Username:* ${username}\n` +
+                      `\ud83d\udcf1 *Phone:* ${phone}\n` +
+                      `\ud83d\udcb0 *Price Plan:* ${pricePlan}`;
+      
       fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
       }).then(response => response.json()).then(data => {
-        alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
-        submitBtn.disabled = true;  // Disable the button
-        submitBtn.innerText = "Submitted"; // Change button text
-        localStorage.setItem('formSubmitted', 'true'); // Mark form as submitted
-        form.reset(); // Reset the form
-        window.location.href = 'congratulations.html'; // Redirect to congrats page
+        if (data.ok) {
+          alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
+          submitBtn.disabled = true;
+          submitBtn.innerText = "Submitted";
+          localStorage.setItem('formSubmitted', 'true'); // Prevent re-submission
+          form.style.display = "none"; // Hide form after successful submission
+          window.location.href = 'congratulations.html';
+        } else {
+          alert('Failed to send details. Please try again!');
+        }
       }).catch(error => {
         alert('Failed to send details. Please try again!');
       });
