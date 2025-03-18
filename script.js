@@ -31,7 +31,7 @@ window.buyIndicator = function (indicatorName, price, duration) {
     amount: price * 100, // Amount in paise (e.g., ₹1999 = 199900)
     currency: 'INR',
     name: 'Ph4ntom Traders',
-    description: `${indicatorName} - ${duration} Access`, // Fixed string interpolation
+    description: ${indicatorName} - ${duration} Access, // Fixed string interpolation
     image: 'https://your-website-logo-url.png', // Replace with your logo URL
     handler: function (response) {
       alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
@@ -166,3 +166,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
+
+  // TradingView Form Submission
+  const form = document.getElementById('tradingview-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (localStorage.getItem('formSubmitted') === 'true') {
+        alert('You have already submitted the form in this session.');
+        return;
+      }
+
+      const email = document.getElementById('tradingview-email').value;
+      const username = document.getElementById('tradingview-username').value;
+      const mobile = document.getElementById('mobile-number').value;
+
+      const googleFormLink = https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?entry.1234567890=${encodeURIComponent(email)}&entry.9876543210=${encodeURIComponent(username)}&entry.5555555555=${encodeURIComponent(mobile)};
+
+      window.location.href = googleFormLink;
+
+      localStorage.setItem('formSubmitted', 'true');
+    });
+  }
+});
+
+// Reset form submission
+function resetFormSubmission() {
+  localStorage.removeItem('formSubmitted');
+}
+
+function onNewPlanSelected() {
+  resetFormSubmission();
+  alert('You can now submit the form again for the new plan.');
+}
