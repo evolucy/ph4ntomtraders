@@ -44,7 +44,7 @@
     const submitBtn = document.getElementById('submit-btn');
 
     // Check if the form was already submitted
-    if (localStorage.getItem('formSubmitted')) {
+    if (sessionStorage.getItem('formSubmitted')) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitted";
     }
@@ -76,7 +76,7 @@
         alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
         submitBtn.disabled = true;  // Button disable kar diya
         submitBtn.innerText = "Submitted"; // Button ka text change kar diya
-        localStorage.setItem('formSubmitted', true); // Save submission state
+        sessionStorage.setItem('formSubmitted', true); // Save submission state
         window.location.href = 'congratulations.html';
       }).catch(error => {
         alert('Failed to send details. Please try again!');
