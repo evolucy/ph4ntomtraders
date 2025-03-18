@@ -17,27 +17,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Globally declare buyIndicator function
+// Ensure Razorpay script is included in HTML
+if (!window.Razorpay) {
+  const script = document.createElement('script');
+  script.src = "https://checkout.razorpay.com/v1/checkout.js";
+  document.head.appendChild(script);
+}
+
+// Buy Indicator Function
 window.buyIndicator = function (indicatorName, price, duration) {
   const options = {
-    key: 'rzp_test_VuME3PDnWmW4Pq', // Replace with your Razorpay Key ID
+    key: 'rzp_test_VuME3PDnWmW4Pq', // Replace with actual Razorpay Key ID
     amount: price * 100, // Amount in paise (e.g., ₹1999 = 199900)
     currency: 'INR',
     name: 'Ph4ntom Traders',
-    description: ${indicatorName} - ${duration} Access,
-    image: 'https://your-website-logo-url.png', // Add your logo URL
+    description: `${indicatorName} - ${duration} Access`, // Fixed string interpolation
+    image: 'https://your-website-logo-url.png', // Replace with your logo URL
     handler: function (response) {
       alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
-      // Redirect to TradingView details page
       window.location.href = 'tradingview-details.html';
     },
     prefill: {
-      name: 'User Name', // Replace with user's name (if available)
-      email: 'user@example.com', // Replace with user's email (if available)
-      contact: '9999999999', // Replace with user's contact (if available)
+      name: 'User Name', // Replace with user's name
+      email: 'user@example.com', // Replace with user's email
+      contact: '9999999999', // Replace with user's contact
     },
     theme: {
-      color: '#00b894', // Customize the theme color
+      color: '#00b894',
     },
   };
 
@@ -93,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
       resetPasswordForm.classList.add('active');
     });
 
-    // Back to Login Link
     const backToLoginLink = document.querySelector('.back-to-login a');
     backToLoginLink.addEventListener('click', (e) => {
       e.preventDefault();
@@ -122,15 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
           window.location.href = 'dashboard.html';
         })
         .catch((error) => {
-          let errorMessage = error.message;
-          if (error.code === 'auth/email-already-in-use') {
-            errorMessage = 'Email already in use. Please use a different email.';
-          } else if (error.code === 'auth/invalid-email') {
-            errorMessage = 'Invalid email address.';
-          } else if (error.code === 'auth/weak-password') {
-            errorMessage = 'Password must be at least 6 characters long.';
-          }
-          alert('Error: ' + errorMessage);
+          alert('Error: ' + error.message);
         });
     });
   }
@@ -149,43 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
           window.location.href = 'dashboard.html';
         })
         .catch((error) => {
-          let errorMessage = error.message;
-          if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password') {
-            errorMessage = 'Invalid email or password.';
-          } else if (error.code === 'auth/user-not-found') {
-            errorMessage = 'User not found. Please sign up first.';
-          }
-          alert('Error: ' + errorMessage);
-        });
-    });
-  }
-
-  // Reset Password Form Submission
-  const resetPasswordFormSubmit = document.getElementById('reset-password-form');
-  if (resetPasswordFormSubmit) {
-    resetPasswordFormSubmit.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const email = document.getElementById('reset-email').value;
-
-      sendPasswordResetEmail(auth, email)
-        .then(() => {
-          alert('Password reset email sent! Check your inbox.');
-        })
-        .catch((error) => {
-          let errorMessage = error.message;
-          if (error.code === 'auth/user-not-found') {
-            errorMessage = 'User not found. Please check your email address.';
-          } else if (error.code === 'auth/invalid-email') {
-            errorMessage = 'Invalid email address.';
-          }
-          alert('Error: ' + errorMessage);
+          alert('Error: ' + error.message);
         });
     });
   }
 
   // Logout Functionality
-  const logoutButton = document.getElementById('logout-btn'); // Updated ID
+  const logoutButton = document.getElementById('logout-btn');
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
       signOut(auth)
@@ -198,39 +165,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
-});
 
-const form = document.getElementById('tradingview-form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  // TradingView Form Submission
+  const form = document.getElementById('tradingview-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-  // Check if user has already submitted
-  if (localStorage.getItem('formSubmitted') === 'true') {
-    alert('You have already submitted the form in this session.');
-    return;
+      if (localStorage.getItem('formSubmitted') === 'true') {
+        alert('You have already submitted the form in this session.');
+        return;
+      }
+
+      const email = document.getElementById('tradingview-email').value;
+      const username = document.getElementById('tradingview-username').value;
+      const mobile = document.getElementById('mobile-number').value;
+
+      const googleFormLink = `https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?entry.1234567890=${encodeURIComponent(email)}&entry.9876543210=${encodeURIComponent(username)}&entry.5555555555=${encodeURIComponent(mobile)}`;
+
+      window.location.href = googleFormLink;
+
+      localStorage.setItem('formSubmitted', 'true');
+    });
   }
-
-  // Collect form data
-  const email = document.getElementById('tradingview-email').value;
-  const username = document.getElementById('tradingview-username').value;
-  const mobile = document.getElementById('mobile-number').value;
-
-  // Create Google Form link with pre-filled data
-  const googleFormLink = YOUR_GOOGLE_FORM_LINK?entry.1234567890=${encodeURIComponent(email)}&entry.9876543210=${encodeURIComponent(username)}&entry.5555555555=${encodeURIComponent(mobile)};
-
-  // Redirect user to Google Form
-  window.location.href = googleFormLink;
-
-  // Set flag in local storage
-  localStorage.setItem('formSubmitted', 'true');
 });
 
-// Reset flag if user selects a new price plan
+// Reset form submission
 function resetFormSubmission() {
   localStorage.removeItem('formSubmitted');
 }
 
-// Function to call when a new plan is selected
 function onNewPlanSelected() {
   resetFormSubmission();
   alert('You can now submit the form again for the new plan.');
