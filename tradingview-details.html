@@ -43,8 +43,13 @@
     const form = document.getElementById('tradingview-form');
     const submitBtn = document.getElementById('submit-btn');
 
+    // Unique user ID (Based on email or username)
+    function getUserKey() {
+      return sessionStorage.getItem("userKey") || localStorage.getItem("userKey");
+    }
+
     // Check if user already submitted
-    if (localStorage.getItem("submitted")) {
+    if (getUserKey()) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Already Submitted";
     }
@@ -57,6 +62,15 @@
       const phone = document.getElementById('phone-number').value;
       const pricePlan = document.getElementById('price-plan').value;
 
+      // Generate unique key for user (based on email or username)
+      const userKey = `submitted_${email || username}`;
+
+      // Prevent multiple submissions
+      if (localStorage.getItem(userKey)) {
+        alert("You have already submitted your details.");
+        return;
+      }
+
       const chatID = "7976547544";  // Tera Telegram Chat ID
       const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Bot ka token
 
@@ -68,9 +82,14 @@
         body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
       }).then(response => response.json()).then(data => {
         alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
-        localStorage.setItem("submitted", true); // User ka submission store ho gaya
-        submitBtn.disabled = true;  // Button disable kar diya
-        submitBtn.innerText = "Already Submitted"; // Button ka text change kar diya
+
+        // Store submission status
+        localStorage.setItem(userKey, true);
+        sessionStorage.setItem("userKey", userKey);
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Already Submitted";
+
         window.location.href = 'congratulations.html';
       }).catch(error => {
         alert('Failed to send details. Please try again!');
