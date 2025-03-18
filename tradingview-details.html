@@ -81,14 +81,3 @@
           submitBtn.innerText = "Submitted";
           localStorage.setItem("formSubmitted", "true"); // Save in localStorage
           window.location.href = 'congratulations.html';
-        } else {
-          alert('Failed to send details. Please try again!');
-        }
-      })
-      .catch(error => {
-        alert('Error occurred! Please check your internet connection.');
-      });
-    });
-  </script>
-</body>
-</html>
