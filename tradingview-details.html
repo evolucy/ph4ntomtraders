@@ -43,7 +43,7 @@
     const form = document.getElementById('tradingview-form');
     const submitBtn = document.getElementById('submit-btn');
 
-    // Agar pehle submit ho chuka hai to button disable rahega
+    // Pehle se submit hai to button disable karna
     if (localStorage.getItem("formSubmitted")) {
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitted";
@@ -51,16 +51,16 @@
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const chatID = "7976547544";  // Tera Telegram Chat ID
+      const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Bot Token
+
       const name = document.getElementById('name').value;
       const email = document.getElementById('tradingview-email').value;
       const username = document.getElementById('tradingview-username').value;
       const phone = document.getElementById('phone-number').value;
       const pricePlan = document.getElementById('price-plan').value;
 
-      const chatID = "7976547544";  // Tera Telegram Chat ID
-      const botToken = "7764818710:AAEVf-mPvtL0dMw_8rYi1iemEpkZ_PQ4GfA";  // Bot Token
-
-      // ✅ Fixed message format (backticks ` used)
       const message = `📌 *New TradingView Details Submitted*\n\n
       👤 *Name:* ${name}\n
       📧 *Email:* ${email}\n
@@ -72,15 +72,14 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: chatID, text: message, parse_mode: "Markdown" })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.ok) {
-          alert('Details submitted successfully! Indicator will be added to your TradingView account shortly.');
-          submitBtn.disabled = true;
-          submitBtn.innerText = "Submitted";
-          localStorage.setItem("formSubmitted", "true"); // Save in localStorage
-          window.location.href = 'congratulations.html';
+      });
+
+      // ✅ Submit hone ke baad disable aur redirect
+      localStorage.setItem("formSubmitted", "true");
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitted";
+      window.location.href = 'congratulations.html';
+    });
   </script>
 </body>
 </html>
