@@ -199,32 +199,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    let submitBtn = document.getElementById("submitBtn");
-    let form = document.getElementById("myForm");
-
-    // ✅ Check if form is already submitted
-    if (localStorage.getItem("formSubmitted")) {
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Submitted";
-    }
-
-    // ✅ Form submit event
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Stop normal form submission
-
-        if (!localStorage.getItem("formSubmitted")) {
-            // ✅ Backend request bhejne ka space
-            alert("Form submitted successfully!");
-
-            // ✅ LocalStorage me flag save karo
-            localStorage.setItem("formSubmitted", "true");
-
-            // ✅ Button disable karo
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Submitted";
-        }
-    });
-});
-
